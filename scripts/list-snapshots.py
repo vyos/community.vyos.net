@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+
+# Requires the following environment variables:
+# SNAPSHOTS_BUCKET
+# AWS_ACCESS_KEY_ID
+# AWS_SECRET_ACCESS_KEY
+
+import os
+import re
+import json
+
+import boto3
+
+bucket = os.getenv("SNAPSHOTS_BUCKET")
+
+def make_link(s, f):
+    f = re.sub(r'\s+', '+', f)
+    return "https://s3.amazonaws.com/{0}/snapshot/{1}/{2}".format(bucket, s, f)
+
+s3 = boto3.client('s3')
+object_listing = s3.list_objects_v2(Bucket=bucket, Prefix='snapshot')
+data = object_listing['Contents']
+
+files = []
+for f in data:
+    files.append(f['Key'])
+
+snapshot_names = set(map(lambda s: re.sub(r'snapshot/(.*?)/.*', r'\1', s), files))
+
+snapshots = []
+
+
+for name in snapshot_names:
+    snapshot = {}
+    snapshot['name'] = name
+    snapshot['files'] = list(filter(lambda s: re.search(name, s), files))
+
+    snapshot_files = list(filter(lambda s: re.search(name, s), files))
+    snapshot_files = list(map(lambda f: {'name': os.path.basename(f), 'platform': os.path.basename(os.path.dirname(f)), 'link': make_link(name, f)}, snapshot_files))
+
+    snapshot['files'] = snapshot_files
+
+    snapshots.append(snapshot)
+
+print(json.dumps(snapshots, indent=4))

@@ -51,7 +51,7 @@ tmpl = jinja2.Template("""
   <h3>{{s.name}}</h3>
   <ul>
   {% for f in s.files %}
-    <li><a href="{{f.link}})">{{f.name}} ({{f.platform}})</a></li>
+    <li><a href="{{f.link}}">{{f.name}} ({{f.platform}})</a></li>
   {% endfor %}
   </ul>
 {% endfor %}

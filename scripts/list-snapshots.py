@@ -11,6 +11,8 @@ import json
 
 import boto3
 
+import jinja2
+
 bucket = os.getenv("SNAPSHOTS_BUCKET")
 
 def make_link(s, f):
@@ -42,4 +44,17 @@ for name in snapshot_names:
 
     snapshots.append(snapshot)
 
-print(json.dumps(snapshots, indent=4))
+#print(json.dumps(snapshots, indent=4))
+
+tmpl = jinja2.Template("""
+{% for s in snapshots %}
+  <h3>{{s.name}}</h3>
+  <ul>
+  {% for f in s.files %}
+    <li><a href="{{f.link}})">{{f.name}} ({{f.platform}})</a></li>
+  {% endfor %}
+  </ul>
+{% endfor %}
+""")
+
+print(tmpl.render(snapshots=snapshots))

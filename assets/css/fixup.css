@@ -1,0 +1,23 @@
+#content {
+  max-width: 800px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p {
+  text-align: left;
+}
+
+@supports (hyphens: auto) {
+  p {
+    text-align: justify;
+    hyphens: auto;
+  }
+}
+
+pre, code, sample {
+  white-space: pre-wrap;
+  hyphens: none;
+}

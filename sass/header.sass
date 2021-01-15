@@ -1,0 +1,103 @@
+@import settings.sass
+  
+header
+  background: $white
+  box-shadow: 0px 5px 20px rgba(0, 56, 79, 0.07)
+  padding: 20px 0
+  position: relative
+  +resp(md)
+    padding: 15px 0
+    position: sticky
+    top: 0
+    z-index: 2
+  +resp(esm)
+    padding: 10px 0
+
+  div.header__inner
+    display: flex
+    justify-content: space-between
+    +resp(sm)
+      align-items: center
+    
+    div.header__logo-side
+      display: flex
+      align-items: center
+      a.header__logo
+        display: inherit
+        margin-right: 30px
+        +resp(lg)
+          margin-right: 16px
+      div.header__text
+        font-family: $lato
+        font-weight: 500
+        font-size: 16px
+        line-height: 25px
+        +resp(sm)
+          display: none
+        p
+          font-size: 16px
+          color: #ACACAD
+          text-align: left
+          +resp(md)
+            display: none
+
+    div.header__links-side
+      display: grid
+      grid-template-columns: 1fr auto auto auto
+      grid-gap: 31px
+      justify-items: center
+      align-items: center
+      +resp(lg)
+        grid-gap: 20px
+        text-align: center
+      +resp(sm)
+        display: none
+      a
+        font-family: $lato
+        font-weight: 600
+        font-size: 15px
+        line-height: 14px
+        text-transform: uppercase
+        text-decoration: none
+        color: $black
+        transition: 0.3s
+        +resp(lg)
+          font-size: 14px
+        &:hover
+          color: $orange
+
+    div.header__mobile-menu__buttons
+      height: 100%
+      width: 30px
+      justify-content: center
+      display: none
+      +resp(sm)
+        display: flex
+      img
+        cursor: pointer
+        display: none
+      img.active
+        display: block
+
+nav#mobile-menu
+  z-index: 1
+  bottom: 0
+  top: 0
+  right: 0
+  position: fixed
+  left: 100%
+  background-color: $white
+  padding: 70px 15px
+  +resp(esm)
+    padding: 60px 15px
+  a
+    display: block
+    text-transform: uppercase
+    color: $black
+    text-decoration: none
+    padding: 15px 0
+    font-weight: 600
+    transition: 0.3s
+    border-bottom: 1px solid #e0e0e0
+    &:hover
+      color: $orange

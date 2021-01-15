@@ -1,0 +1,40 @@
+@import settings.sass
+@import fonts.sass
+
+body
+  font-family: $lato, sans-serif
+  margin: 0
+  color: $black
+
+h1, h2, h3, h4, h5, p, ul, li
+  margin: 0
+
+h2
+  font-family: $lato
+  font-weight: 800
+  font-size: 38px
+  line-height: 140%
+  +resp(sm)
+    font-size: 24px
+p
+  font-family: $lato
+  font-weight: normal
+  font-size: 18px
+  line-height: 180%
+  text-align: center
+  color: $black
+  +resp(sm)
+    font-size: 14px
+
+div.container
+  max-width: 1340px
+  margin: 0 auto
+  padding-left: 15px
+  padding-right: 15px
+
+@import header.sass
+@import front-page/banner.sass
+@import front-page/main-text.sass
+@import front-page/inform-columns.sass
+@import front-page/bottom-text.sass
+@import footer.sass

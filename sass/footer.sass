@@ -1,0 +1,161 @@
+@import settings.sass
+  
+footer
+  div.footer__inner
+    
+    div.footer__logo-society
+      display: grid
+      grid-template-columns: 60px 1fr 191px
+      grid-gap: 25px
+      align-items: center
+      +resp(sm)
+        display: none
+      div.footer__hr
+        align-self: center
+        img
+          margin-bottom: 10px
+          width: 100%
+          +resp(md)
+            border-bottom: 1px solid #E0DFDF
+      div.footer__socials
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding-left: 6px
+
+    div.footer__links-trustpilot
+      display: flex
+      justify-content: space-between
+      margin-top: 36px
+      +resp(sm)
+        display: none
+
+      div.footer__links
+        display: flex
+        +resp(md)
+          flex-wrap: wrap
+
+        div.footer__column
+          display: grid
+          grid-template-rows: 50px 1fr
+          margin-right: 80px
+          &:last-child
+            margin-right: 0
+          +resp(lg)
+            margin-right: 32px
+          +resp(md)
+            width: 50%
+            margin: 0 0 30px
+            grid-template-rows: 34px 1fr
+          h3.footer__links-title
+            font-weight: 600
+            font-size: 21px
+            color: $black
+            +resp(lg)
+              line-height: 50px
+            +resp(md)
+              line-height: 150%
+              font-size: 16px
+              margin-bottom: 0px
+
+          ul.footer__links-item
+            padding-left: 0
+            list-style: none
+            a
+              list-style: none
+              font-family: $lato
+              font-weight: normal
+              font-size: 16px
+              line-height: 230%
+              color: #747577
+              text-decoration: none
+              +resp(md)
+                font-size: 14px
+              &:hover
+                color: $orange
+                text-decoration: underline
+
+      div.footer__trustpilot
+        justify-self: end
+        border-left: 1px solid #E0DFDF
+        padding-left: 33px
+        +resp(lg)
+          padding-left: 10px
+        div#tp-widget-wrapper
+          margin: 0
+
+    div.footer__developer
+      border-top: 1px solid #E0DFDF
+      display: flex
+      justify-content: space-between
+      align-items: center
+      padding: 40px 0
+      margin-top: 37px
+      +resp(sm)
+        display: none
+      div.footer__hosted
+        display: flex
+        align-items: center
+        p
+          font-family: $lato
+          font-weight: normal
+          font-size: 13px
+          line-height: 16px
+          color: #ACACAD
+          padding-right: 16px
+          +resp(md)
+            padding-right: 8px
+            display: none
+      div.footer__rights
+        display: flex
+        p, a
+          font-family: $lato
+          font-weight: normal
+          font-size: 15px
+          line-height: 150%
+          text-decoration: none
+          color: #ACACAD
+          padding-right: 30px
+          +resp(md)
+            font-size: 14px
+            padding-right: 22px
+        a:hover
+          text-decoration: underline
+          color: $orange
+
+    div.footer__sm
+      display: none
+      +resp(sm)
+        display: block
+      
+      div.footer__sm__contant
+        border-top: 1px solid #ACACAD
+        padding: 32px 0 23px
+        div.footer__sm__logos
+          display: flex
+          justify-content: space-between
+          align-items: center
+        div.footer__sm__society
+          max-width: 200px
+          margin: 24px auto 17px
+          display: flex
+          justify-content: space-between
+        div.footer__sm__developer
+          p, a
+            font-family: $lato
+            font-weight: normal
+            font-size: 13px
+            line-height: 16px
+            color: #747577
+            opacity: 0.5
+          div.footer__sm__privacy-policy
+            display: flex
+            justify-content: center
+            margin-bottom: 19px
+            a
+              text-decoration: none
+              transition: 0.3s
+              &:hover
+                text-decoration: underline
+              &:first-child
+                margin-right: 20px

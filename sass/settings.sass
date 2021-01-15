@@ -1,0 +1,47 @@
+// fonts
+$lato : "Lato", "Arial", sans-serif
+// colors
+$white : #ffffff
+$orange : #FFBE12
+$black : #18191C
+$grey : #747577
+$dark-orange: #FD8F01
+
+// mixins
+@mixin resp($media)
+	// 1200px and up
+	@if $media == xlg
+		@media only screen and (min-width: 1200px)
+			@content
+	// 1400px and down
+	@if $media == elg
+		@media only screen and (max-width: 1400px)
+			@content
+	// 1199px and down
+	@if $media == lg
+		@media only screen and (max-width: 1199px)
+			@content
+	// 991px and down
+	@else if $media == md
+		@media only screen and (max-width: 991px)
+			@content
+	// 767px and down
+	@else if $media == sm
+		@media only screen and (max-width: 767px)
+			@content
+	// 575px and down
+	@else if $media == esm
+		@media only screen and (max-width: 575px)
+			@content
+	// 450px and down
+	@else if $media == usm
+		@media only screen and (max-width: 450px)
+			@content
+	// 390px and down
+	@else if $media == xsm
+		@media only screen and (max-width: 390px)
+			@content
+	// 350px and down
+	@else if $media == exsm
+		@media only screen and (max-width: 350px)
+			@content

@@ -48,7 +48,7 @@ jobs:
         make all
 
     - name: Build CSS
-      run:
+      run: |
         mkdir -p build/css/
         sass -I sass/ sass/main.sass > build/css/main.css
         

@@ -17,7 +17,7 @@ bucket = os.getenv("SNAPSHOTS_BUCKET")
 
 def make_link(s, f):
     f = re.sub(r'\s+', '+', f)
-    return "https://s3.amazonaws.com/{0}/snapshot/{1}/{2}".format(bucket, s, f)
+    return "https://s3.amazonaws.com/{0}/{1}".format(bucket, f)
 
 s3 = boto3.client('s3')
 object_listing = s3.list_objects_v2(Bucket=bucket, Prefix='snapshot')
@@ -38,13 +38,14 @@ for name in snapshot_names:
     snapshot['files'] = list(filter(lambda s: re.search(name, s), files))
 
     snapshot_files = list(filter(lambda s: re.search(name, s), files))
-    snapshot_files = list(map(lambda f: {'name': os.path.basename(f), 'platform': os.path.basename(os.path.dirname(f)), 'link': make_link(name, f)}, snapshot_files))
+    snapshot_files = list(map(lambda f: {'name': os.path.basename(f).strip(), 'platform': os.path.basename(os.path.dirname(f)), 'link': make_link(name, f)}, snapshot_files))
+
+    # S3 listing sometimes returns dir names among file names... filter those out.
+    snapshot_files = list(filter(lambda f: f['name'] != "", snapshot_files))
 
     snapshot['files'] = snapshot_files
 
     snapshots.append(snapshot)
-
-#print(json.dumps(snapshots, indent=4))
 
 tmpl = jinja2.Template("""
 {% for s in snapshots %}

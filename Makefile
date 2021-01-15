@@ -1,9 +1,5 @@
-.PHONY: assets
-assets:
-	cp -r assets/* build/
-
 .PHONY: site
 site:
-	soupault
+	soupault ${SOUPAULT_OPTS}
 
-all: site assets
+all: site

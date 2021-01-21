@@ -1,6 +1,7 @@
 @import ../settings.sass
 
 section.inform-columns
+
   div.inform-column__inner
     display: grid
     grid-template-columns: 1fr 1fr
@@ -17,6 +18,7 @@ section.inform-columns
       grid-gap: 40px
       padding: 48px 54px 59px
       +resp(md)
+        grid-gap: 25px
         padding: 30px 25px
       +resp(sm)
         padding: 30px 24px 40px
@@ -43,6 +45,8 @@ section.inform-columns
           text-align: left
           margin-bottom: 29px
           font-size: 16px
+          +resp(md)
+            margin-bottom: 20px
           &:last-child
             margin-bottom: 10px
             +resp(sm)
@@ -56,24 +60,23 @@ section.inform-columns
         +resp(sm)
           align-self: end
         a.inform-column__btn
-          max-width: 311px
-          width: 100%
-          height: 58px
+          max-width: 291px
+          padding: 10px
+          min-height: 38px
           display: flex
           align-items: center
           justify-content: center
+          text-align: center
           background: $orange
           border: 1px solid $orange
-          font-weight: 900
+          font-weight: 700
           font-size: 16px
-          line-height: 15px
           color: $black
           text-decoration: none
           transition: 0.3s
+          line-height: 1.5
           +resp(sm)
-            height: 38px
-            width: 100%
+            min-height: 28px
             font-size: 14px
-            line-height: 96%
           &:hover
             background: $white

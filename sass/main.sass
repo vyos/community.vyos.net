@@ -21,16 +21,28 @@ p
   font-weight: normal
   font-size: 18px
   line-height: 180%
-  text-align: center
   color: $black
   +resp(sm)
     font-size: 14px
+  @supports (hyphens: auto)
+    text-align: justify
+    hyphens: auto
+
+pre, code, sample
+  white-space: pre-wrap
+  hyphens: none
 
 div.container
   max-width: 1340px
   margin: 0 auto
   padding-left: 15px
   padding-right: 15px
+  &.small
+    max-width: 1000px
+
+#content
+  margin-top: 20px
+  margin-bottom: 20px
 
 @import header.sass
 @import front-page/banner.sass

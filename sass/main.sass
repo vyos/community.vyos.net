@@ -8,18 +8,28 @@ body
 h1, h2, h3, h4, h5, p, ul, li
   margin: 0
 
-h2
+h1
   font-weight: 800
-  font-size: 38px
-  line-height: 140%
-  +resp(sm)
-    font-size: 24px
-p
-  font-weight: normal
-  font-size: 18px
-  line-height: 180%
+  font-size: 45px
+  line-height: 120%
+  letter-spacing: 0.02em
   color: $black
   +resp(sm)
+    font-size: 32px
+  +resp(esm)
+    font-size: 28px
+h2
+  font-weight: 800
+  font-size: 32px
+  line-height: 140%
+  +resp(sm)
+    font-size: 21px
+p
+  font-weight: normal
+  line-height: 180%
+  font-size: 16px
+  color: $black
+  +resp(esm)
     font-size: 14px
   @supports (hyphens: auto)
     text-align: justify
@@ -38,8 +48,49 @@ div.container
     max-width: 1000px
 
 #content
-  margin-top: 20px
-  margin-bottom: 20px
+  padding-top: 60px
+  padding-bottom: 50px
+  +resp(sm)
+    padding-top: 40px
+    padding-bottom: 20px
+  +resp(esm)
+    padding-top: 30px
+  h1
+    margin-bottom: 25px
+    +resp(esm)
+      margin-bottom: 15px
+  h2
+    margin-top: 25px
+    margin-bottom: 20px
+    +resp(esm)
+      margin-top: 20px
+      margin-bottom: 15px
+  p
+    margin: 15px 0
+    +resp(esm)
+      margin: 9px 0
+  ul
+    +resp(sm)
+      padding-left: 25px
+    +resp(esm)
+      padding-left: 15px
+    li
+      list-style: none
+      display: flex
+      align-items: center
+      margin: 12px 0
+      line-height: 150%
+      +resp(esm)
+        font-size: 14px
+        margin: 10px 0
+      &:before
+        margin-top: 4px
+        margin-right: 10px
+        content: url('../img/global/list-element.svg')
+  a
+    color: $dark-orange
+    &:hover
+      text-decoration: none
 
 @import header.sass
 @import front-page/banner.sass

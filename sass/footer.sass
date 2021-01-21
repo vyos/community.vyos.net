@@ -37,42 +37,58 @@ footer
 
         div.footer__column
           display: grid
-          grid-template-rows: 50px 1fr
-          margin-right: 80px
-          &:last-child
-            margin-right: 0
+          grid-template-rows: auto 1fr
+          margin-right: 48px
           +resp(lg)
-            margin-right: 32px
+            margin-right: 28px
           +resp(md)
-            width: 50%
             margin: 0 0 30px
             grid-template-rows: 34px 1fr
-          h3.footer__links-title
-            font-weight: 600
-            font-size: 21px
-            color: $black
+          &:nth-child(1)
             +resp(lg)
-              line-height: 50px
+              width: 16%
             +resp(md)
-              line-height: 150%
-              font-size: 16px
-              margin-bottom: 0px
+              width: 40%
+          &:nth-child(2)
+            +resp(lg)
+              width: 18%
+            +resp(md)
+              width: 60%
+          &:nth-child(3)
+            +resp(lg)
+              width: 20%
+            +resp(md)
+              width: 40%
+          &:nth-child(4)
+            margin-right: 0
+            +resp(lg)
+              width: 32%
+            +resp(md)
+              width: 60%
 
-          ul.footer__links-item
+          h3
+            font-weight: 600
+            font-size: 18px
+            padding: 0 0 17px 0
+            color: $black
+
+          ul
             padding-left: 0
             list-style: none
-            a
-              list-style: none
-              font-weight: normal
-              font-size: 16px
-              line-height: 230%
-              color: #747577
-              text-decoration: none
-              +resp(md)
-                font-size: 14px
-              &:hover
-                color: $orange
-                text-decoration: underline
+            li
+              padding: 5px 0
+              a
+                list-style: none
+                font-weight: normal
+                font-size: 16px
+                line-height: 1.7
+                color: #747577
+                text-decoration: none
+                +resp(md)
+                  font-size: 14px
+                &:hover
+                  color: $orange
+                  text-decoration: underline
 
       div.footer__trustpilot
         justify-self: end
@@ -104,6 +120,7 @@ footer
           +resp(md)
             padding-right: 8px
             display: none
+
       div.footer__rights
         display: flex
         p, a
@@ -155,3 +172,5 @@ footer
                 text-decoration: underline
               &:first-child
                 margin-right: 20px
+          div.footer__sm__rights
+            text-align: center

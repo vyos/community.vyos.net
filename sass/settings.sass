@@ -20,7 +20,7 @@ $dark-orange: #FD8F01
 		@media only screen and (max-width: 1199px)
 			@content
 	// 991px and down
-	@else if $media == md
+	@if $media == md
 		@media only screen and (max-width: 991px)
 			@content
 	// 767px and down
@@ -28,18 +28,18 @@ $dark-orange: #FD8F01
 		@media only screen and (max-width: 767px)
 			@content
 	// 575px and down
-	@else if $media == esm
+	@if $media == esm
 		@media only screen and (max-width: 575px)
 			@content
 	// 450px and down
-	@else if $media == usm
+	@if $media == usm
 		@media only screen and (max-width: 450px)
 			@content
 	// 390px and down
-	@else if $media == xsm
+	@if $media == xsm
 		@media only screen and (max-width: 390px)
 			@content
 	// 350px and down
-	@else if $media == exsm
+	@if $media == exsm
 		@media only screen and (max-width: 350px)
 			@content

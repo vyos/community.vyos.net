@@ -275,61 +275,6 @@ header div.header__inner div.header__links-side a {
 header div.header__inner div.header__links-side a:hover {
   color: #FFBE12;
 }
-header div.header__inner div.header__mobile-menu__buttons {
-  height: 100%;
-  width: 30px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: none;
-}
-@media only screen and (max-width: 767px) {
-  header div.header__inner div.header__mobile-menu__buttons {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-  }
-}
-header div.header__inner div.header__mobile-menu__buttons img {
-  cursor: pointer;
-  display: none;
-}
-header div.header__inner div.header__mobile-menu__buttons img.active {
-  display: block;
-}
-
-nav#mobile-menu {
-  z-index: 1;
-  bottom: 0;
-  top: 0;
-  right: 0;
-  position: fixed;
-  left: 100%;
-  background-color: #ffffff;
-  padding: 70px 15px;
-}
-@media only screen and (max-width: 575px) {
-  nav#mobile-menu {
-    padding: 60px 15px;
-  }
-}
-nav#mobile-menu a {
-  display: block;
-  text-transform: uppercase;
-  color: #18191C;
-  text-decoration: none;
-  padding: 15px 0;
-  font-weight: 600;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  border-bottom: 1px solid #e0e0e0;
-}
-nav#mobile-menu a:hover {
-  color: #FFBE12;
-}
 
 section.banner {
   background-image: url("/img/front-page/banner/banner-bg.svg");

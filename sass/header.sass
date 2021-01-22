@@ -63,39 +63,3 @@ header
           font-size: 14px
         &:hover
           color: $orange
-
-    div.header__mobile-menu__buttons
-      height: 100%
-      width: 30px
-      justify-content: center
-      display: none
-      +resp(sm)
-        display: flex
-      img
-        cursor: pointer
-        display: none
-      img.active
-        display: block
-
-nav#mobile-menu
-  z-index: 1
-  bottom: 0
-  top: 0
-  right: 0
-  position: fixed
-  left: 100%
-  background-color: $white
-  padding: 70px 15px
-  +resp(esm)
-    padding: 60px 15px
-  a
-    display: block
-    text-transform: uppercase
-    color: $black
-    text-decoration: none
-    padding: 15px 0
-    font-weight: 600
-    transition: 0.3s
-    border-bottom: 1px solid #e0e0e0
-    &:hover
-      color: $orange

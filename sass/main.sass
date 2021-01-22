@@ -70,23 +70,25 @@ div.container
     +resp(esm)
       margin: 9px 0
   ul
+    list-style: none
     +resp(sm)
       padding-left: 25px
     +resp(esm)
       padding-left: 15px
     li
-      list-style: none
-      display: flex
-      align-items: center
-      margin: 12px 0
+      padding-left: 25px
+      margin: 16px 0
       line-height: 150%
       +resp(esm)
         font-size: 14px
-        margin: 10px 0
+        margin: 13px 0
       &:before
-        margin-top: 4px
-        margin-right: 10px
+        position: absolute
+        margin-top: 1px
+        margin-left: -25px
         content: url('../img/global/list-element.svg')
+        +resp(esm)
+          margin-top: 2px
   a
     color: $dark-orange
     &:hover

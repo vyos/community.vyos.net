@@ -24,8 +24,17 @@ They include all experimental features.
 
 We recommend them for home networks, lab use, and non-critical production routers.
 
-Get them from our [snapshots page](/snapshots).
+Get them from our [snapshots page](/get/snapshots).
 
 ## LTS release
 
+Prebuilt LTS release images are available to people and companies who help us move the project forward.
 
+There are many ways to get access:
+
+* Purchase a [software access subscription](https://vyos.io/subscriptions/software/).
+* Get free access with a [support subscription](https://vyos.io/subscriptions/support/).
+* Apply for a free subscription as a [contributor](/get/contributor-subscriptions).
+* Apply for a free subscription as an [educational instutution](https://vyos.io/community/for-educational-institutions/), [non-profit](https://vyos.io/community/for-non-commercial-organizations/), or an [emergency service](http://vyos.io/community/for-first-responders/).
+
+Or you can build an LTS image from source.

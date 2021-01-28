@@ -25,7 +25,7 @@ but we are ready to share our work with everyone who helps us move the project f
 This includes everyone who contributes code, tests latest builds, writes documentation,
 or promotes VyOS in the social media or at live events. 
 
-Read about our contributor subscription [eligibility guidelines](/contributor-subscriptions).
+Read about our contributor subscription [eligibility guidelines](/get/contributor-subscriptions).
 
 We also have [badges](https://www.youracclaim.com/organizations/vyos/badges)!
 

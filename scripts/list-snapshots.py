@@ -13,11 +13,28 @@ import boto3
 
 import jinja2
 
+from functools import cmp_to_key
+
 bucket = os.getenv("SNAPSHOTS_BUCKET")
 
 def make_link(s, f):
     f = re.sub(r'\s+', '+', f)
     return "https://s3.amazonaws.com/{0}/{1}".format(bucket, f)
+
+def compare(l, r):
+    try:
+        regex = r'\-(\d+)$'
+        l_date = int(re.search(regex, l).group(1))
+        r_date = int(re.search(regex, r).group(1))
+        if l_date == r_date:
+            return 0
+        elif l_date > r_date:
+            return 1
+        else:
+            return -1
+    except:
+        return(-1)
+
 
 s3 = boto3.client('s3')
 object_listing = s3.list_objects_v2(Bucket=bucket, Prefix='snapshot')
@@ -46,6 +63,8 @@ for name in snapshot_names:
     snapshot['files'] = snapshot_files
 
     snapshots.append(snapshot)
+
+snapshots.sort(reverse=True, key=cmp_to_key(lambda l, r: compare(l["name"], r["name"])))
 
 tmpl = jinja2.Template("""
 {% for s in snapshots %}

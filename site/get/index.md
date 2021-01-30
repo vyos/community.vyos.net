@@ -15,7 +15,7 @@ Nightly builds are for you if you...
 * want to check whether a bug is fixed in the latest code
 * made a patch and want to test it before making a pull request
 
-Get nightly builds from [downloads.vyos.io](https://downloads.vyos.io/?dir=rolling/current/).
+Go to the [nightly builds page](/get/nightly-builds).
 
 ## Monthly snapshots
 

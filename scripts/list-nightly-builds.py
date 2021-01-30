@@ -21,7 +21,7 @@ bucket = os.getenv("SNAPSHOTS_BUCKET")
 
 def make_link(s, f):
     f = re.sub(r'\s+', '+', f)
-    return "https://s3.amazonaws.com/{0}/{1}".format(bucket, f)
+    return "https://s3.amazonaws.com/{0}/rolling/{1}".format(bucket, f)
 
 def compare(l, r):
     try:
@@ -48,6 +48,7 @@ for f in data:
 
 file_names = list(set(map(lambda s: re.sub(r'rolling/(.*?)', r'\1', s), files)))
 file_names.sort(reverse=True, key=cmp_to_key(compare))
+file_names.remove('vyos-rolling-latest.iso')
 
 builds = []
 
@@ -60,10 +61,11 @@ for name in file_names:
 
 tmpl = jinja2.Template("""
 <ul>
+  <li><a href="{{latest}}">Latest build (symbolic link)</a></li>
 {% for b in builds %}
   <li><a href="{{b.link}}">{{b.file}}</a></li>
 {% endfor %}
 </ul>
 """)
 
-print(tmpl.render(builds=builds))
+print(tmpl.render(latest=make_link('rolling', 'vyos-rolling-latest.iso'), builds=builds))

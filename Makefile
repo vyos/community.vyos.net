@@ -2,4 +2,8 @@
 site:
 	soupault ${SOUPAULT_OPTS}
 
-all: site
+.PHONY: css
+css:
+	sass -I sass/ sass/main.sass > build/css/main.css
+
+all: site css

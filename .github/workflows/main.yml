@@ -47,11 +47,6 @@ jobs:
       run: |
         make all
 
-    - name: Build CSS
-      run: |
-        mkdir -p build/css/
-        sass -I sass/ sass/main.sass > build/css/main.css
-        
     - name: Deploy to Netlify
       env:
         NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}

@@ -4,6 +4,7 @@ site:
 
 .PHONY: css
 css:
-	sass -I sass/ sass/main.sass > build/css/main.css
+	mkdir -p build/
+	sass -I sass/ sass/main.sass > build/main.css
 
 all: site css

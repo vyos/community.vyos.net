@@ -1,6 +1,11 @@
 # VyOS Project
 
+VyOS is a fully open-source network OS.
+
 ## Goals
+
+* Provide a universal network OS that can run on commodity hardware (from large rack-mountable servers to small desktop appliances and old PCs), all popular hypervisors and cloud platforms.
+* Give all people control over their network equipment by giving them the full source code and means to build it.
 
 ## History
 

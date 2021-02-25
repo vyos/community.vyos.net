@@ -68,7 +68,7 @@ snapshots.sort(reverse=True, key=cmp_to_key(lambda l, r: compare(l["name"], r["n
 
 tmpl = jinja2.Template("""
 {% for s in snapshots %}
-  <h3>{{s.name}}</h3>
+  <h3 id="{{s.name}}">{{s.name}}</h3>
   <ul>
   {% for f in s.files %}
     <li><a href="{{f.link}}">{{f.name}} ({{f.platform}})</a></li>

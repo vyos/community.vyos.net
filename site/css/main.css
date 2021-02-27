@@ -950,3 +950,127 @@ footer div.footer__inner div.footer__sm div.footer__sm__contant div.footer__sm__
 footer div.footer__inner div.footer__sm div.footer__sm__contant div.footer__sm__developer div.footer__sm__rights {
   text-align: center;
 }
+
+.google-analytics-message {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  display: none;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+  padding: 44px 0;
+}
+@media only screen and (max-width: 1199px) {
+  .google-analytics-message {
+    padding: 28px 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .google-analytics-message {
+    padding: 20px 0;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .google-analytics-message {
+    padding: 13px 0;
+  }
+}
+.google-analytics-message.open {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.google-analytics-message__content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.google-analytics-message__content__img {
+  border-right: 1px solid #E0DFDF;
+  padding-right: 21px;
+}
+.google-analytics-message__content__text p {
+  padding-left: 20px;
+  line-height: 160%;
+  font-size: 15px;
+  -webkit-hyphens: inherit;
+      -ms-hyphens: inherit;
+          hyphens: inherit;
+}
+@media only screen and (max-width: 991px) {
+  .google-analytics-message__content__text p {
+    font-size: 14px;
+  }
+}
+.google-analytics-message__content__text p:first-child {
+  margin-bottom: 16px;
+}
+.google-analytics-message__buttons {
+  text-align: right;
+  margin-top: 20px;
+}
+@media only screen and (max-width: 575px) {
+  .google-analytics-message__buttons {
+    text-align: inherit;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+.google-analytics-message__buttons__accept, .google-analytics-message__buttons__decline {
+  height: 40px;
+  width: 151px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+@media only screen and (max-width: 575px) {
+  .google-analytics-message__buttons__accept, .google-analytics-message__buttons__decline {
+    width: 50%;
+  }
+}
+.google-analytics-message__buttons__accept {
+  background-color: #FFBE12;
+  border: 1px solid #FFBE12;
+  color: #18191C;
+  margin-right: 6px;
+}
+@media only screen and (max-width: 575px) {
+  .google-analytics-message__buttons__accept {
+    margin-right: 5px;
+  }
+}
+.google-analytics-message__buttons__accept:hover {
+  background-color: #ffffff;
+}
+.google-analytics-message__buttons__decline {
+  background-color: #18191C;
+  border: 1px solid #18191C;
+  color: #ffffff;
+}
+@media only screen and (max-width: 575px) {
+  .google-analytics-message__buttons__decline {
+    margin-left: 5px;
+  }
+}
+.google-analytics-message__buttons__decline:hover {
+  background-color: #ffffff;
+  color: #18191C;
+}

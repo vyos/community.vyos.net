@@ -9,6 +9,7 @@
 
 import os
 import re
+import sys
 import json
 
 import boto3
@@ -17,11 +18,9 @@ import jinja2
 
 from functools import cmp_to_key
 
-bucket = os.getenv("SNAPSHOTS_BUCKET")
-
-def make_link(s, f):
-    f = re.sub(r'\s+', '+', f)
-    return "https://s3.amazonaws.com/{0}/rolling/current/{1}".format(bucket, f)
+def make_link(bucket, prefix, file):
+    f = re.sub(r'\s+', '+', file)
+    return "https://s3.amazonaws.com/{0}/{1}/{2}".format(bucket, prefix, file)
 
 def compare(l, r):
     try:
@@ -38,30 +37,47 @@ def compare(l, r):
         return(-1)
 
 
-s3 = boto3.client('s3')
-object_listing = s3.list_objects_v2(Bucket=bucket, Prefix='rolling/current')
-data = object_listing['Contents']
+def list_image_files(bucket, prefix):
+    s3 = boto3.client('s3')
+    object_listing = s3.list_objects_v2(Bucket=bucket, Prefix=prefix)
+    data = object_listing['Contents']
 
-files = []
-for f in data:
-    files.append(f['Key'])
+    files = []
+    for f in data:
+        files.append(f['Key'])
 
-file_names = list(set(map(lambda s: re.sub(r'rolling/current/(.*?)', r'\1', s), files)))
-file_names.sort(reverse=True, key=cmp_to_key(compare))
+    return files
 
-builds = []
+def render_image_list(bucket, prefix, files):
+    file_names = list(set(map(lambda s: re.sub(r'rolling/current/(.*?)', r'\1', s), files)))
+    file_names.sort(reverse=True, key=cmp_to_key(compare))
 
-for name in file_names:
-    build = {}
-    build['file'] = name
-    build['link'] = make_link('rolling', name)
+    builds = []
 
-    builds.append(build)
+    for name in file_names:
+        build = {}
+        build['file'] = name
+        build['link'] = make_link(bucket, prefix, name)
 
-tmpl = jinja2.Template("""
-<ul>
-{% for b in builds %}
-  <li><a href="{{b.link}}">{{b.file}}</a></li>
-{% endfor %}
-</ul>
-""")
+        builds.append(build)
+
+    tmpl = jinja2.Template("""
+      <ul>
+      {% for b in builds %}
+        <li><a href="{{b.link}}">{{b.file}}</a></li>
+      {% endfor %}
+     </ul>
+    """)
+    print(tmpl.render(builds=builds))
+
+if __name__ == '__main__':
+    bucket = os.getenv("SNAPSHOTS_BUCKET")
+
+    try:
+        prefix = sys.argv[1]
+    except:
+        print("Please specify directory prefix!", file=sys.stderr)
+        sys.exit(1)
+
+    files = list_image_files(bucket, prefix)
+    render_image_list(bucket, prefix, files)

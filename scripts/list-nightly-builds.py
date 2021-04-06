@@ -49,7 +49,8 @@ def list_image_files(bucket, prefix):
     return files
 
 def render_image_list(bucket, prefix, files):
-    file_names = list(set(map(lambda s: re.sub(r'rolling/current/(.*?)', r'\1', s), files)))
+    regex = prefix + r'/(.*?)'
+    file_names = list(set(map(lambda s: re.sub(regex, r'\1', s), files)))
     file_names.sort(reverse=True, key=cmp_to_key(compare))
 
     builds = []

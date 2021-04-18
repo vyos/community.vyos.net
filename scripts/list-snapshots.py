@@ -37,14 +37,14 @@ def compare(l, r):
 
 
 s3 = boto3.client('s3')
-object_listing = s3.list_objects_v2(Bucket=bucket, Prefix='snapshot')
+object_listing = s3.list_objects_v2(Bucket=bucket, Prefix='snapshot/equuleus')
 data = object_listing['Contents']
 
 files = []
 for f in data:
     files.append(f['Key'])
 
-snapshot_names = set(map(lambda s: re.sub(r'snapshot/(.*?)/.*', r'\1', s), files))
+snapshot_names = set(map(lambda s: re.sub(r'snapshot/equuleus/(.*?)/.*', r'\1', s), files))
 
 snapshots = []
 

@@ -50,9 +50,6 @@ snapshots = []
 
 
 for name in snapshot_names:
-    if name == "snapshot/equuleus/":
-        continue
-
     snapshot = {}
     snapshot['name'] = name
     snapshot['files'] = list(filter(lambda s: re.search(name, s), files))

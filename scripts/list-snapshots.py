@@ -68,7 +68,7 @@ snapshots = natural_sort(snapshots, reverse=True)
 
 tmpl = jinja2.Template("""
 {% for s in snapshots %}
-  <a href="#{{s.name}}">#</a><h3 id="{{s.name}}">{{s.name}}</h3>
+  <h3 id="{{s.name}}"><a href="#{{s.name}}">#</a> {{s.name}}</h3>
   <ul>
   {% for f in s.files %}
     <li><a href="{{f.link}}">{{f.name}} ({{f.platform}})</a></li>

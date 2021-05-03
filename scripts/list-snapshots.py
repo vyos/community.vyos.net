@@ -21,19 +21,19 @@ def make_link(s, f):
     f = re.sub(r'\s+', '+', f)
     return "https://s3.amazonaws.com/{0}/{1}".format(bucket, f)
 
-def compare(l, r):
-    try:
-        regex = r'\-(\d+)$'
-        l_date = int(re.search(regex, l).group(1))
-        r_date = int(re.search(regex, r).group(1))
-        if l_date == r_date:
-            return 0
-        elif l_date > r_date:
-            return 1
-        else:
-            return -1
-    except:
-        return(-1)
+def natural_sort(iterable, reverse=False):
+    import re
+    from jinja2.runtime import Undefined
+
+    if isinstance(iterable, Undefined) or iterable is None:
+        return list()
+
+    def convert(text):
+        return int(text) if text.isdigit() else text.lower()
+    def alphanum_key(key):
+        return [convert(c) for c in re.split('([0-9]+)', str(key))]
+
+    return sorted(iterable, key=alphanum_key, reverse=reverse)
 
 
 s3 = boto3.client('s3')
@@ -64,10 +64,10 @@ for name in snapshot_names:
 
     snapshots.append(snapshot)
 
-snapshots.sort(reverse=True, key=cmp_to_key(lambda l, r: compare(l["name"], r["name"])))
+snapshots = natural_sort(snapshots, reverse=True)
 
 tmpl = jinja2.Template("""
-{% for s in snapshots | natural_sort %}
+{% for s in snapshots %}
   <a href="#{{s.name}}">#</a><h3 id="{{s.name}}">{{s.name}}</h3>
   <ul>
   {% for f in s.files %}

@@ -67,8 +67,8 @@ for name in snapshot_names:
 snapshots.sort(reverse=True, key=cmp_to_key(lambda l, r: compare(l["name"], r["name"])))
 
 tmpl = jinja2.Template("""
-{% for s in snapshots %}
-  <h3 id="{{s.name}}">{{s.name}}</h3>
+{% for s in snapshots | natural_sort %}
+  <a href="#{{s.name}}">#</a><h3 id="{{s.name}}">{{s.name}}</h3>
   <ul>
   {% for f in s.files %}
     <li><a href="{{f.link}}">{{f.name}} ({{f.platform}})</a></li>

@@ -38,7 +38,7 @@ jobs:
 
     - name: Install soupault
       env:
-        SOUPAULT_VERSION: 2.6.0
+        SOUPAULT_VERSION: 2.7.0
       run: |
         echo Downloading and unpacking soupault
         wget https://github.com/dmbaturin/soupault/releases/download/$SOUPAULT_VERSION/soupault-$SOUPAULT_VERSION-linux-x86_64.tar.gz
@@ -50,7 +50,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         SNAPSHOTS_BUCKET: ${{ secrets.SNAPSHOTS_BUCKET }}
-        SOUPAULT_OPTS: "--profile ${{ secrets.SOUPAULT_PROFILE }}"
+        SOUPAULT_OPTS: "--profile ${{ secrets.SOUPAULT_PROFILE }} --profile live"
       run: |
         make all
 

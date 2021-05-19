@@ -19,7 +19,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # For the main branch, this job should use the staging environment
-    environment: staging
+    environment: production
 
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
@@ -28,6 +28,8 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+      with:
+        ref: production
 
     - name: Install build dependencies from the repos
       run: |

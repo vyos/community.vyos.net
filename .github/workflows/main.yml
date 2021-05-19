@@ -18,6 +18,9 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    # For the main branch, this job should use the staging environment
+    environment: staging
+
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
 
@@ -35,7 +38,7 @@ jobs:
 
     - name: Install soupault
       env:
-        SOUPAULT_VERSION: 2.6.0
+        SOUPAULT_VERSION: 2.7.0
       run: |
         echo Downloading and unpacking soupault
         wget https://github.com/dmbaturin/soupault/releases/download/$SOUPAULT_VERSION/soupault-$SOUPAULT_VERSION-linux-x86_64.tar.gz
@@ -47,13 +50,14 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         SNAPSHOTS_BUCKET: ${{ secrets.SNAPSHOTS_BUCKET }}
-        SOUPAULT_OPTS: "--profile live"
+        SOUPAULT_OPTS: "--profile ${{ secrets.SOUPAULT_PROFILE }} --profile live"
       run: |
         make all
 
     - name: Deploy to Netlify
       env:
         NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+        NETLIFY_SITE_NAME: ${{ secrets.NETLIFY_SITE_NAME }}
       run: |
         zip -r website.zip build/
-        curl -H "Content-Type: application/zip" -H "Authorization: Bearer $NETLIFY_TOKEN" --data-binary "@website.zip" https://api.netlify.com/api/v1/sites/vyos-community.netlify.app/deploys
+        curl -H "Content-Type: application/zip" -H "Authorization: Bearer $NETLIFY_TOKEN" --data-binary "@website.zip" https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_NAME/deploys

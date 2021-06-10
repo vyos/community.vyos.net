@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1340"
+   height="341"
+   viewBox="0 0 1340 341"
+   fill="none"
+   version="1.1"
+   id="svg39"
+   sodipodi:docname="CTA.svg"
+   inkscape:version="0.92.4 (33fec40, 2019-01-16)">
+  <metadata
+     id="metadata43">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview41"
+     showgrid="false"
+     inkscape:zoom="0.26492537"
+     inkscape:cx="702.82024"
+     inkscape:cy="206.96837"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g32" />
+  <g
+     clip-path="url(#clip0)"
+     id="g32">
+    <rect
+       width="1340"
+       height="344"
+       fill="#18191C"
+       id="rect2" />
+    <g
+       opacity="0.05"
+       id="g12">
+      <path
+         d="M149.75 -71H191V66.5H224V-104H149.75V-71Z"
+         fill="white"
+         id="path4" />
+      <path
+         d="M119.5 -104H-51V-29.75H-18V-71H119.5V-104Z"
+         fill="white"
+         id="path6" />
+      <path
+         d="M-18 0.5H-51V171H23.25V138H-18V0.5Z"
+         fill="white"
+         id="path8" />
+      <path
+         d="M53.5 138V171H224V96.75H191V138H53.5Z"
+         fill="white"
+         id="path10" />
+    </g>
+  </g>
+  <defs
+     id="defs37">
+    <clipPath
+       id="clip0">
+      <rect
+         width="1340"
+         height="341"
+         fill="white"
+         id="rect34" />
+    </clipPath>
+  </defs>
+</svg>

@@ -24,16 +24,18 @@ please supply links to posts or recorded talks.</fn> track record of posting abo
 or speaking about it at live events (offline or online). Answering on the forums also counts.
 </dd>
 
-<h2 id="application-form">Apply for a subscription</h2>
+<div id="application-form">
 
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
 <script>
   hbspt.forms.create({
 	region: "na1",
 	portalId: "4129050",
-	formId: "69cc4023-7ade-4d85-a013-4ce620ef5e47"
+	formId: "3c2d93a2-e9a9-49b8-b493-38369aa9cca5"
 });
 </script>
+
+</div>
 
 <hr>
 <div id="footnotes"> </div>

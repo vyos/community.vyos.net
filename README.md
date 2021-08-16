@@ -15,6 +15,16 @@ scripts/		Helper scripts.
 soupault.conf		Configuration file for the soupault static site generator.
 ```
 
+## Branches
+
+This repository has two branches: `main` and `production`.
+
+The `main` branch serves as a staging environment where all new changes to first.
+It's automatically deployed to the staging.vyos.net domain so that the changes
+can be viewed live.
+
+The `production` branch is deployed to the real [vyos.net] website.
+
 ## Contributing
 
 The fundamental structure of the website is not set in stone yet, so if you want to add a new page
@@ -29,7 +39,7 @@ We encourage you to make sure that the site builds and looks as expected before 
 
 Two tools are _required_ for building:
 
-* The [soupault](https://soupault.app) static site generator.
+* [soupault](https://soupault.app) static site generator.
 * [SASS](https://sass-lang.com/) compiler, the Dart version.
 
 **Note:** the C++ `sassc` _will not_ work! The Dart and the C++ "reference implementations" don't behave the same,

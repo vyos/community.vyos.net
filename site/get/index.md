@@ -5,10 +5,10 @@ VyOS has three release "channels": nightly builds, monthly snapshots, and LTS re
 ## Nightly builds
 
 Nightly builds are automatically produced at least once a day and include all the latest
-code and features from maintainers and community contributors.
+code (bug fixes and features) from maintainers and community contributors.
 
-Nightly builds are not hand-tested before upload - a basic set of automated
-[smoketests](https://github.com/vyos/vyos-1x/tree/current/smoketest/scripts/cli) is executed
+Nightly builds are not hand-tested before upload. A basic set of automated
+[smoke tests](https://github.com/vyos/vyos-1x/tree/current/smoketest/scripts/cli) is executed
 for each build ensuring that basic functionality is working. In addition we load arbitrary
 [configurations](https://github.com/vyos/vyos-1x/tree/current/smoketest/configs) to ensure
 there are no errors during config migration and system bootup.

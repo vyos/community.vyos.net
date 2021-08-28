@@ -45,8 +45,7 @@ We also have [badges](https://www.youracclaim.com/organizations/vyos/badges)!
 
 ### Testing latest builds
 
-* Get a [nightly build](https://downloads.vyos.io/?dir=rolling/current) or a
-  [snapshot](/get/snapshots)
+* Get a [nightly build](/get/nightly-builds) or a [snapshot](/get/snapshots)
 * Reports bugs in [Phabricator](https://phabricator.vyos.net/maniphest).
 
 ### Spreading the word

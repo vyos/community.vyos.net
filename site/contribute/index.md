@@ -41,7 +41,7 @@ We also have [badges](https://www.youracclaim.com/organizations/vyos/badges)!
 ### Contributing to the documentation
 
 * Fork the [vyos-documentation](https://github.com/vyos/vyos-documentation/) repo.
-* Read the [guidelines](https://docs.vyos.io/en/latest/contributing/documentation.html).
+* Read the [guidelines](https://docs.vyos.io/en/equuleus/contributing/index.html).
 
 ### Testing latest builds
 

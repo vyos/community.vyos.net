@@ -12,7 +12,7 @@ site/			Site pages.
 
 scripts/		Helper scripts.
 
-soupault.conf		Configuration file for the soupault static site generator.
+soupault.toml		Configuration file for the soupault static site generator.
 ```
 
 ## Branches
@@ -23,7 +23,7 @@ The `main` branch serves as a staging environment where all new changes to first
 It's automatically deployed to the staging.vyos.net domain so that the changes
 can be viewed live.
 
-The `production` branch is deployed to the real [vyos.net] website.
+The `production` branch is deployed to the real [vyos.net](https://vyos.net) website.
 
 ## Contributing
 

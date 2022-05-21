@@ -17,9 +17,9 @@ from functools import cmp_to_key
 
 bucket = os.getenv("SNAPSHOTS_BUCKET")
 
-def make_link(s, f):
+def make_link(f):
     f = re.sub(r'\s+', '+', f)
-    return "https://s3.amazonaws.com/{0}/{1}".format(bucket, f)
+    return "https://s3-us.vyos.io/{0}".format(f)
 
 def natural_sort(iterable, reverse=False):
     import re
@@ -55,7 +55,7 @@ for name in snapshot_names:
     snapshot['files'] = list(filter(lambda s: re.search(name, s), files))
 
     snapshot_files = list(filter(lambda s: re.search(name, s), files))
-    snapshot_files = list(map(lambda f: {'name': os.path.basename(f).strip(), 'platform': os.path.basename(os.path.dirname(f)), 'link': make_link(name, f)}, snapshot_files))
+    snapshot_files = list(map(lambda f: {'name': os.path.basename(f).strip(), 'platform': os.path.basename(os.path.dirname(f)), 'link': make_link(f)}, snapshot_files))
 
     # S3 listing sometimes returns dir names among file names... filter those out.
     snapshot_files = list(filter(lambda f: f['name'] != "", snapshot_files))

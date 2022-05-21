@@ -18,9 +18,9 @@ import jinja2
 
 from functools import cmp_to_key
 
-def make_link(bucket, prefix, file):
+def make_link(prefix, file):
     f = re.sub(r'\s+', '+', file)
-    return "https://s3.amazonaws.com/{0}/{1}/{2}".format(bucket, prefix, file)
+    return "https://s3-us.vyos.io/{0}/{1}".format(prefix, file)
 
 def compare(l, r):
     try:
@@ -58,7 +58,7 @@ def render_image_list(bucket, prefix, files):
     for name in file_names:
         build = {}
         build['file'] = name
-        build['link'] = make_link(bucket, prefix, name)
+        build['link'] = make_link(prefix, name)
 
         builds.append(build)
 

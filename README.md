@@ -40,6 +40,7 @@ We encourage you to make sure that the site builds and looks as expected before 
 Two tools are _required_ for building:
 
 * [soupault](https://soupault.app) static site generator.
+* [cmark](https://github.com/commonmark/cmark) Markdown processor.
 * [SASS](https://sass-lang.com/) compiler, the Dart version.
 
 **Note:** the C++ `sassc` _will not_ work! The Dart and the C++ "reference implementations" don't behave the same,

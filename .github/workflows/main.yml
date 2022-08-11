@@ -60,4 +60,4 @@ jobs:
         NETLIFY_SITE_NAME: ${{ secrets.NETLIFY_SITE_NAME }}
       run: |
         zip -r website.zip build/
-        curl -H "Content-Type: application/zip" -H "Authorization: Bearer $NETLIFY_TOKEN" --data-binary "@website.zip" https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_NAME/deploys
+        curl --show-error --fail -H "Content-Type: application/zip" -H "Authorization: Bearer $NETLIFY_TOKEN" --data-binary "@website.zip" https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_NAME/deploys

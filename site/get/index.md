@@ -21,15 +21,6 @@ Nightly builds are for you if you...
 
 Go to the [nightly builds page](/get/nightly-builds).
 
-## Monthly snapshots
-
-Monthly snapshots receive some testing to ensure they aren't badly broken.
-They include all experimental features.
-
-We recommend them for home networks, lab use, and non-critical production routers.
-
-Get them from our [snapshots page](/get/snapshots).
-
 ## LTS release
 
 Prebuilt LTS release images are available to people and companies who help us move the project

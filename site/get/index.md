@@ -37,3 +37,9 @@ There are many ways to get access:
   [emergency service](http://vyos.io/community/for-first-responders/).
 
 Or you can build an LTS image from source.
+
+## Legacy LTS releases
+
+We also provide images of legacy LTS releases as a courtesy. Currently available images are:
+
+* [1.2.9 generic ISO image](http://s3-us.vyos.io/vyos-1.2.9-amd64.iso)

@@ -42,4 +42,8 @@ Or you can build an LTS image from source.
 
 We also provide images of legacy LTS releases as a courtesy. Currently available images are:
 
-* [1.2.9 generic ISO image](http://s3-us.vyos.io/vyos-1.2.9-amd64.iso)
+* [1.2.9 generic ISO image](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-amd64.iso) ([GPG](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-amd64.iso.asc), [Minisign](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-amd64.iso.minisig))
+* [1.2.9 Qcow2 image for KVM](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-10G-qemu.qcow2) ([GPG](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-10G-qemu.qcow2.asc), [Minisign](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-10G-qemu.qcow2.minisig))
+* [1.2.9 OVA for VMware (with cloud-init)](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-cloud-init-vmware.ova)
+* [1.2.9 OVA for VMware (simple)](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-simple-vmware.ova) ([GPG](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-simple-vmware.ova.asc), [Minisign](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-simple-vmware.ova.minisig))
+* [1.2.9 for Microsoft Hyper-V](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-hyperv-amd64.vhdx) ([GPG](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-hyperv-amd64.vhdx.asc), [Minisign](http://s3-us.vyos.io/1.2.9/vyos-1.2.9-hyperv-amd64.vhdx.minisig))

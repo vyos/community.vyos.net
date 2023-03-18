@@ -36,7 +36,7 @@ We also have [badges](https://www.youracclaim.com/organizations/vyos/badges)!
 ### Contributing to the code
 
 * Read [contributing guidelines](https://docs.vyos.io/en/latest/contributing/index.html).
-* Browse [open tasks](https://phabricator.vyos.net/maniphest/query/YqwCUwoj7wWx/#R).
+* Browse [open tasks](https://vyos.dev/maniphest/query/YqwCUwoj7wWx/#R).
 
 ### Contributing to the documentation
 
@@ -46,7 +46,7 @@ We also have [badges](https://www.youracclaim.com/organizations/vyos/badges)!
 ### Testing latest builds
 
 * Get a [nightly build](/get/nightly-builds).
-* Reports bugs in [Phabricator](https://phabricator.vyos.net/maniphest).
+* Reports bugs in [Phabricator](https://vyos.dev/maniphest).
 
 ### Spreading the word
 

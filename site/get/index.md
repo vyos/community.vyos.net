@@ -42,10 +42,10 @@ Or you can build an LTS image from source.
 
 We also provide images of legacy LTS releases as a courtesy. Currently available images are:
 
-### 1.2.9 [#](#1.2.9)
+### 1.2.9-S1 [#](#1.2.9-S1)
 
-* [1.2.9 generic ISO image](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-amd64.iso) (signatures: [GPG](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-amd64.iso.asc), [Minisign](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-amd64.iso.minisig))
-* [1.2.9 Qcow2 image for KVM](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-10G-qemu.qcow2) (signatures: [GPG](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-10G-qemu.qcow2.asc), [Minisign](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-10G-qemu.qcow2.minisig))
-* [1.2.9 OVA for VMware (with cloud-init)](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-cloud-init-vmware.ova) (signatures: [GPG](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-cloud-init-vmware.ova.asc), [Minisign](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-cloud-init-vmware.ova.minisig)).
-* [1.2.9 OVA for VMware (simple)](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-simple-vmware.ova) (signatures: [GPG](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-simple-vmware.ova.asc), [Minisign](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-simple-vmware.ova.minisig))
-* [1.2.9 for Microsoft Hyper-V](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-hyperv-amd64.vhdx) (signatures: [GPG](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-hyperv-amd64.vhdx.asc), [Minisign](https://s3-us.vyos.io/1.2.9/vyos-1.2.9-hyperv-amd64.vhdx.minisig))
+* [1.2.9-S1 generic ISO image](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-amd64.iso) (signatures: [GPG](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-amd64.iso.asc), [Minisign](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-amd64.iso.minisig))
+* [1.2.9-S1 Qcow2 image for KVM](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-10G-qemu.qcow2) (signatures: [GPG](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-10G-qemu.qcow2.asc), [Minisign](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-10G-qemu.qcow2.minisig))
+* [1.2.9-S1 OVA for VMware (with cloud-init)](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-cloud-init-vmware.ova) (signatures: [GPG](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-cloud-init-vmware.ova.asc), [Minisign](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-cloud-init-vmware.ova.minisig)).
+* [1.2.9-S1 OVA for VMware (simple)](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-simple-vmware.ova) (signatures: [GPG](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-simple-vmware.ova.asc), [Minisign](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-simple-vmware.ova.minisig))
+* [1.2.9-S1 for Microsoft Hyper-V](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-hyperv-amd64.vhdx) (signatures: [GPG](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-hyperv-amd64.vhdx.asc), [Minisign](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-hyperv-amd64.vhdx.minisig))

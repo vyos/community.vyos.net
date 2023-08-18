@@ -35,8 +35,8 @@ We also have [badges](https://www.youracclaim.com/organizations/vyos/badges)!
 
 ### Contributing to the code
 
-* Read [contributing guidelines](https://docs.vyos.io/en/latest/contributing/index.html).
-* Browse [open tasks](https://phabricator.vyos.net/maniphest/query/YqwCUwoj7wWx/#R).
+* Read the [introduction to VyOS development](https://docs.vyos.io/en/latest/contributing/development.html).
+* Browse [open tasks](https://vyos.dev/maniphest/query/YqwCUwoj7wWx/#R).
 
 ### Contributing to the documentation
 

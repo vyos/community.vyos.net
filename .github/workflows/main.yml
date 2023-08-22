@@ -35,11 +35,13 @@ jobs:
       run: |
         echo Installing build dependencies
         sudo apt-get update
-        sudo apt-get -y install cmark make python3-boto3 python3-jinja2 npm
+        sudo apt-get -y install cmark make npm
         sudo npm install -g sass@1.32.8
         # PyGitHub changes its API recently, distros use older versions,
         # so we install it from PyPI for now
-        sudo pip install pygithub
+        python -m venv .
+        source ./bin/activate
+        pip install pygithub jinja2
 
     - name: Install soupault
       env:
@@ -52,11 +54,13 @@ jobs:
 
     - name: Build the site
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        SNAPSHOTS_BUCKET: ${{ secrets.SNAPSHOTS_BUCKET }}
+        GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+        # SOUPAULT_PROFILE is "staging" for the main branch,
+        # it enabled a preview version warning.
+        # The "live" profile simply enabled listing nightly builds
         SOUPAULT_OPTS: "--profile ${{ secrets.SOUPAULT_PROFILE }} --profile live"
       run: |
+        source ./bin/activate
         make all
 
     - name: Deploy to Netlify

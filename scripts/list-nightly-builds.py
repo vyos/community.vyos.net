@@ -51,7 +51,7 @@ def render_image_list(images):
     return tmpl.render(images=images)
 
 if __name__ == '__main__':
-    gh_token_string = os.getenv('GITHUB_ACCESS_TOKEN')
+    gh_token_string = os.getenv('GH_ACCESS_TOKEN')
     gh_auth = github.Auth.Token(gh_token_string)
     gh = github.Github(auth=gh_auth)
     repo = gh.get_repo(REPO)

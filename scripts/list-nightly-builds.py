@@ -43,7 +43,7 @@ def render_image_list(images):
     tmpl = jinja2.Template("""
       <ul>
       {% for i in images %}
-        <li><a href="{{i.iso_url}}">{{i.title}}</a> (<a href="{{i.sig_url}}">Minisign signature</a>)</li>
+        <li><a href="{{i.iso_url}}">{{i.title}}</a> (<a href="{{i.sig_url}}">sig</a>)</li>
       {% endfor %}
      </ul>
     """)

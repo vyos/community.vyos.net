@@ -35,6 +35,9 @@ jobs:
         sudo apt-get update
         sudo apt-get -y install cmark make python3-boto3 python3-jinja2 npm
         sudo npm install -g sass@1.32.8
+        # PyGitHub changes its API recently, distros use older versions,
+        # so we install it from PyPI for now
+        sudo pip install pygithub
 
     - name: Install soupault
       env:

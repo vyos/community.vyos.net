@@ -12,7 +12,7 @@ site/			Site pages.
 
 scripts/		Helper scripts.
 
-soupault.conf		Configuration file for the soupault static site generator.
+soupault.toml		Configuration file for the soupault static site generator.
 ```
 
 ## Branches
@@ -23,7 +23,7 @@ The `main` branch serves as a staging environment where all new changes to first
 It's automatically deployed to the staging.vyos.net domain so that the changes
 can be viewed live.
 
-The `production` branch is deployed to the real [vyos.net] website.
+The `production` branch is deployed to the real [vyos.net](https://vyos.net) website.
 
 ## Contributing
 
@@ -40,11 +40,12 @@ We encourage you to make sure that the site builds and looks as expected before 
 Two tools are _required_ for building:
 
 * [soupault](https://soupault.app) static site generator.
-* [SASS](https://sass-lang.com/) compiler, the Dart version.
+* [Sass](https://sass-lang.com/) compiler, the Dart version.
+* [cmark](https://github.com/commonmark/cmark) Markdown processor.
 
 **Note:** the C++ `sassc` _will not_ work! The Dart and the C++ "reference implementations" don't behave the same,
-and you'll need the Dart one (available from NPM, `npm install -g sass`).
-Hopefully we'll rid this site of SASS some day and it will be no longer an issue.
+and you'll need the Dart one (available from npm, `npm install -g sass`).
+Hopefully we'll rid this site of Sass some day and it will be no longer an issue.
 
 Running `make all` will build both the site and the CSS, generated files will be in `build/`.
 You can then preview the site with any development web server, e.g. `python3 -m http.server --directory build/`.

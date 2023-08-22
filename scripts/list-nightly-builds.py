@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Builds a list of nightly builds from S3
+# Builds a list of nightly builds from GitHub releases
 #
 # Requires the following environment variables:
 # SNAPSHOTS_BUCKET
@@ -12,73 +12,49 @@ import re
 import sys
 import json
 
-import boto3
-
+import github
 import jinja2
 
-from functools import cmp_to_key
+REPO = 'vyos/vyos-rolling-nightly-builds'
 
-def make_link(prefix, file):
-    f = re.sub(r'\s+', '+', file)
-    return "https://s3-us.vyos.io/{0}/{1}".format(prefix, file)
+def list_images(repo):
+    images = []
 
-def compare(l, r):
-    try:
-        regex = r'\-(\d+)\-'
-        l_date = int(re.search(regex, l).group(1))
-        r_date = int(re.search(regex, r).group(1))
-        if l_date == r_date:
-            return 0
-        elif l_date > r_date:
-            return 1
-        else:
-            return -1
-    except:
-        return(-1)
+    # GitHub returns releases sorted by date from newest to oldest,
+    # so we don't need to sort them
+    releases = repo.get_releases()
+    for r in releases:
+        iso = r.assets[0]
+        sig = r.assets[1]
 
+        # Nightly build releases have two assets:
+        # an ISO and a Minisign signature file
+        # The signature is always the second asset in the list
+        image = {}
+        image["iso_url"] = iso.browser_download_url
+        image["sig_url"] = sig.browser_download_url
+        image["title"] = r.title
 
-def list_image_files(bucket, prefix):
-    s3 = boto3.client('s3')
-    object_listing = s3.list_objects_v2(Bucket=bucket, Prefix=prefix)
-    data = object_listing['Contents']
+        images.append(image)
 
-    files = []
-    for f in data:
-        files.append(f['Key'])
+    return images
 
-    return files
-
-def render_image_list(bucket, prefix, files):
-    regex = prefix + r'/(.*?)'
-    file_names = list(set(map(lambda s: re.sub(regex, r'\1', s), files)))
-    file_names.sort(reverse=True, key=cmp_to_key(compare))
-
-    builds = []
-
-    for name in file_names:
-        build = {}
-        build['file'] = name
-        build['link'] = make_link(prefix, name)
-
-        builds.append(build)
-
+def render_image_list(images):
     tmpl = jinja2.Template("""
       <ul>
-      {% for b in builds %}
-        <li><a href="{{b.link}}">{{b.file}}</a></li>
+      {% for i in images %}
+        <li><a href="{{i.iso_url}}">{{i.title}}</a> (<a href="{{i.sig_url}}">Minisign signature</a>)</li>
       {% endfor %}
      </ul>
     """)
-    print(tmpl.render(builds=builds))
+
+    return tmpl.render(images=images)
 
 if __name__ == '__main__':
-    bucket = os.getenv("SNAPSHOTS_BUCKET")
+    gh_token_string = os.getenv('GITHUB_ACCESS_TOKEN')
+    gh_auth = github.Auth.Token(gh_token_string)
+    gh = github.Github(auth=gh_auth)
+    repo = gh.get_repo(REPO)
 
-    try:
-        prefix = sys.argv[1]
-    except:
-        print("Please specify directory prefix!", file=sys.stderr)
-        sys.exit(1)
-
-    files = list_image_files(bucket, prefix)
-    render_image_list(bucket, prefix, files)
+    images = list_images(repo)
+    print(render_image_list(images))

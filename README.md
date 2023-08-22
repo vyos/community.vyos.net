@@ -41,6 +41,7 @@ Two tools are _required_ for building:
 
 * [soupault](https://soupault.app) static site generator.
 * [Sass](https://sass-lang.com/) compiler, the Dart version.
+* [cmark](https://github.com/commonmark/cmark) Markdown processor.
 
 **Note:** the C++ `sassc` _will not_ work! The Dart and the C++ "reference implementations" don't behave the same,
 and you'll need the Dart one (available from npm, `npm install -g sass`).

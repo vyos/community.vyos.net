@@ -21,15 +21,6 @@ Nightly builds are for you if you...
 
 Go to the [nightly builds page](/get/nightly-builds).
 
-## Monthly snapshots
-
-Monthly snapshots receive some testing to ensure they aren't badly broken.
-They include all experimental features.
-
-We recommend them for home networks, lab use, and non-critical production routers.
-
-Get them from our [snapshots page](/get/snapshots).
-
 ## LTS release
 
 Prebuilt LTS release images are available to people and companies who help us move the project
@@ -46,3 +37,15 @@ There are many ways to get access:
   [emergency service](http://vyos.io/community/for-first-responders/).
 
 Or you can build an LTS image from source.
+
+## Legacy LTS releases
+
+We also provide images of legacy LTS releases as a courtesy. Currently available images are:
+
+### 1.2.9-S1 [#](#1.2.9-S1)
+
+* [1.2.9-S1 generic ISO image](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-amd64.iso) (signatures: [GPG](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-amd64.iso.asc), [Minisign](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-amd64.iso.minisig))
+* [1.2.9-S1 Qcow2 image for KVM](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-10G-qemu.qcow2) (signatures: [GPG](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-10G-qemu.qcow2.asc), [Minisign](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-10G-qemu.qcow2.minisig))
+* [1.2.9-S1 OVA for VMware (with cloud-init)](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-cloud-init-vmware.ova) (signatures: [GPG](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-cloud-init-vmware.ova.asc), [Minisign](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-cloud-init-vmware.ova.minisig)).
+* [1.2.9-S1 OVA for VMware (simple)](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-simple-vmware.ova) (signatures: [GPG](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-simple-vmware.ova.asc), [Minisign](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-simple-vmware.ova.minisig))
+* [1.2.9-S1 for Microsoft Hyper-V](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-hyperv-amd64.vhdx) (signatures: [GPG](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-hyperv-amd64.vhdx.asc), [Minisign](https://s3-us.vyos.io/1.2.9-S1/vyos-1.2.9-S1-hyperv-amd64.vhdx.minisig))

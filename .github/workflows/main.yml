@@ -13,6 +13,15 @@ on:
     - cron: "0 3 * * *"
   workflow_dispatch:
   workflow_call:
+    secrets:
+      NETLIFY_SITE_NAME:
+        required: true
+      NETLIFY_TOKEN:
+        required: true
+      SOUPAULT_PROFILE:
+        required: true
+      GH_ACCESS_TOKEN:
+        required: true
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel

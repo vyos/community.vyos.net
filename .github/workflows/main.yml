@@ -12,6 +12,16 @@ on:
   schedule:
     - cron: "0 3 * * *"
   workflow_dispatch:
+  workflow_call:
+    secrets:
+      NETLIFY_SITE_NAME:
+        required: true
+      NETLIFY_TOKEN:
+        required: true
+      SOUPAULT_PROFILE:
+        required: true
+      GH_ACCESS_TOKEN:
+        required: true
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -27,7 +37,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+      with:
+        repository: vyos/community.vyos.net
+        ref: main
 
     - name: Install build dependencies from the repos
       run: |

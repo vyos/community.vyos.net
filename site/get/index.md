@@ -36,16 +36,21 @@ There are many ways to get access:
   [non-profit](https://vyos.io/community/for-non-commercial-organizations/), or an
   [emergency service](http://vyos.io/community/for-first-responders/).
 
-Or you can build an LTS image from source.
+You can also build an LTS image from the source.
 
 ## Legacy LTS releases
 
-We also provide images of legacy LTS releases as a courtesy. Currently available images are:
+As a courtesy, we offer images of legacy LTS releases. To access all available legacy LTS releases, kindly complete the form below. Upon submission, you will receive an email containing links to download the images.
 
-### 1.2.9-S1 [#](#1.2.9-S1)
+<div id="application-form">
 
-* [1.2.9-S1 generic ISO image](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-amd64.iso) (signatures: [GPG](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-amd64.iso.asc), [Minisign](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-amd64.iso.minisig))
-* [1.2.9-S1 Qcow2 image for KVM](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-10G-qemu.qcow2) (signatures: [GPG](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-10G-qemu.qcow2.asc), [Minisign](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-10G-qemu.qcow2.minisig))
-* [1.2.9-S1 OVA for VMware (with cloud-init)](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-cloud-init-vmware.ova) (signatures: [GPG](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-cloud-init-vmware.ova.asc), [Minisign](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-cloud-init-vmware.ova.minisig)).
-* [1.2.9-S1 OVA for VMware (simple)](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-simple-vmware.ova) (signatures: [GPG](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-simple-vmware.ova.asc), [Minisign](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-simple-vmware.ova.minisig))
-* [1.2.9-S1 for Microsoft Hyper-V](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-hyperv-amd64.vhdx) (signatures: [GPG](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-hyperv-amd64.vhdx.asc), [Minisign](https://legacy-lts-images.vyos.io/1.2.9-S1/vyos-1.2.9-S1-hyperv-amd64.vhdx.minisig))
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    region: "na1",
+    portalId: "4129050",
+    formId: "ebb05a53-23d6-4454-824d-817d0d8b86d4"
+  });
+</script>
+
+</div>

@@ -28,8 +28,8 @@ if (isGoogleAnalyticsAllowedValueExist) {
   // display a message with a question
   toggleGoogleAnalyticsMessage('show')
 
-  const googleAnalyticsMessageAccept = document.getElementById('google-analytics-message-accept')
-  const googleAnalyticsMessageDecline = document.getElementById('google-analytics-message-decline')
+  const googleAnalyticsMessageAccept = document.querySelector('#google-analytics-accept')
+  const googleAnalyticsMessageDecline = document.querySelectorAll('#google-analytics-decline')
 
   // register a click on the "Accept" button
   googleAnalyticsMessageAccept.addEventListener('click', function () {
@@ -38,9 +38,11 @@ if (isGoogleAnalyticsAllowedValueExist) {
   })
 
   // register a click on the "Decline" button
-  googleAnalyticsMessageDecline.addEventListener('click', function () {
-    document.cookie = 'isGoogleAnalyticsAllowed=no'
-    toggleGoogleAnalyticsMessage('hide')
+  googleAnalyticsMessageDecline.forEach(el => {
+    el.addEventListener('click', function () {
+      document.cookie = 'isGoogleAnalyticsAllowed=no'
+      toggleGoogleAnalyticsMessage('hide')
+    })
   })
 
 }

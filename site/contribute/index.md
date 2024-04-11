@@ -1,55 +1,84 @@
-# Contributing to VyOS
+<div class='contribute-page'>
+  <section class='banner'>
+    <div class='containerCustom'>
+      <div class='left-shape'>
+        <img src='/img/global/shape-left.svg' />
+      </div>
+      <div class='right-shape'>
+        <img src='/img/global/shape-right.svg' />
+      </div>
 
-VyOS development process is open and transparent. We welcome everyone to contribute!
-There's a lot of work to do: writing code, writing and editing documentation,
-testing latest builds and more.
+  <div class='banner-div'>
 
-## Why contribute?
+  # Contributing to VyOS
 
-### Copyright stays with you
+  VyOS development process is open and transparent. We welcome everyone to contribute!
+  There's a lot of work to do: writing code, writing and editing documentation,
+  testing latest builds and more.
 
-Unlike some other projects, we intentionally do not use a contributor agreement
-that would give us exclusive rights to your contributions.
+  </div>
 
-The copyrights to VyOS source code and documentation remain shared between all
-contributors, so that no one (including its current maintainers) can make a
-proprietary fork.
+  </div>
+  </section>
 
-### We have rewards
+  <section class='content-section'>
+    <div class='content-div'>
+      <div class='why-contribute'>
 
-Maintaining an LTS version is a hard, delicate, high-responsibility work. Being
-a maintainer means not being able to refuse to work on the hard tasks. We keep
-prebuilt LTS images behind a paywall for that reason, but we are ready to share
-our work with everyone who helps us move the project forward.
+  ## Why contribute?
 
-This includes everyone who contributes code, tests latest builds, writes
-documentation, or promotes VyOS in the social media or at live events.
+  ### Copyright stays with you
 
-Read about our [contributor subscriptions](/get/contributor-subscriptions) to
-review eligibility guidelines and
-[fill the application form](/get/contributor-subscriptions#application-form).
+  Unlike some other projects, we intentionally do not use a contributor agreement
+  that would give us exclusive rights to your contributions.
 
-We also have [badges](https://www.youracclaim.com/organizations/vyos/badges)!
+  The copyrights to VyOS source code and documentation remain shared between all
+  contributors, so that no one (including its current maintainers) can make a
+  proprietary fork.
 
-## Where to start
+  ### We have rewards
 
-### Contributing to the code
+  Maintaining an LTS version is a hard, delicate, high-responsibility work. Being
+  a maintainer means not being able to refuse to work on the hard tasks. We keep
+  prebuilt LTS images behind a paywall for that reason, but we are ready to share
+  our work with everyone who helps us move the project forward.
 
-* Read the [introduction to VyOS development](https://docs.vyos.io/en/latest/contributing/development.html).
-* Browse [open tasks](https://vyos.dev/maniphest/query/YqwCUwoj7wWx/#R).
+  This includes everyone who contributes code, tests latest builds, writes
+  documentation, or promotes VyOS in the social media or at live events.
 
-### Contributing to the documentation
+  Read about our [contributor subscriptions](/get/contributor-subscriptions) to
+  review eligibility guidelines and
+  [fill the application form](/get/contributor-subscriptions#application-form).
 
-* Fork the [vyos-documentation](https://github.com/vyos/vyos-documentation/) repo.
-* Read the [guidelines](https://docs.vyos.io/en/latest/documentation.html).
+  We also have [badges](https://www.youracclaim.com/organizations/vyos/badges)!
 
-### Testing latest builds
+  </div>
 
-* Get a [nightly build](/get/nightly-builds).
-* Reports bugs in [Phabricator](https://vyos.dev/maniphest).
+  <div class='start'>
 
-### Spreading the word
+  ## Where to start
 
-* Write about VyOS in your own blog or website.
-* Write about VyOS and share our posts on social media.
-* Speak about VyOS at conferenced and meetups.
+  ### Contributing to the code
+
+  * Read the [introduction to VyOS development](https://docs.vyos.io/en/latest/contributing/development.html).
+  * Browse [open tasks](https://vyos.dev/maniphest/query/YqwCUwoj7wWx/#R).
+
+  ### Contributing to the documentation
+
+  * Fork the [vyos-documentation](https://github.com/vyos/vyos-documentation/) repo.
+  * Read the [guidelines](https://docs.vyos.io/en/latest/documentation.html).
+
+  ### Testing latest builds
+
+  * Get a [nightly build](/get/nightly-builds).
+  * Reports bugs in [Phabricator](https://vyos.dev/maniphest).
+
+  ### Spreading the word
+
+  * Write about VyOS in your own blog or website.
+  * Write about VyOS and share our posts on social media.
+  * Speak about VyOS at conferenced and meetups.
+
+  </div>
+
+</div>

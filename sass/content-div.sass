@@ -1,0 +1,129 @@
+@import settings
+
+.get-page
+
+  .content-section
+    +resolution(992)
+      padding-top: 40px
+    +resolution(576, 991)
+      padding-top: 54px
+    +resolution(0, 575)
+      padding-top: 32px
+
+.contribute-page
+
+  .content-section
+    +resolution(992)
+      padding: 40px 0 144px
+    +resolution(576, 991)
+      padding: 54px 0 64px
+    +resolution(0, 575)
+      padding: 32px 0 64px
+
+.nightly-builds-page
+  .content-section
+    padding-top: 0
+    +resolution(992)
+      padding-bottom: 144px
+    +resolution(576, 991)
+      padding-bottom: 64px
+    +resolution(0, 575)
+      padding-bottom: 64px
+
+.contributor-subs-page
+
+  .content-section
+    +resolution(576)
+      padding-top: 20px
+    +resolution(0, 575)
+      padding-top: 32px
+
+.get-page,
+.contribute-page,
+.nightly-builds-page,
+.contributor-subs-page
+
+  .content-section
+    display: flex
+    align-items: center
+    flex-direction: column
+
+  .content-div
+    display: flex
+    flex-direction: column
+    width: 100%
+    box-sizing: border-box
+    +resolution(0, 575)
+      padding: 0 20px
+    +resolution(576, 991)
+      padding: 0 15px
+    +resolution(576, 991)
+      max-width: 738px
+    +resolution(992)
+      max-width: 810px
+
+    > div:first-of-type
+
+      h2
+        margin-top: 0
+
+    h2
+      font-size: 22px
+      letter-spacing: $em
+      +resolution(576)
+        margin-top: 40px
+      +resolution(0, 575)
+        margin-top: 32px
+
+    h3
+      letter-spacing: $px
+      color: $grey-dark
+      line-height: 1.6
+      font-family: $r
+      margin-top: 16px
+      +resolution(576)
+        font-size: 18px
+      +resolution(0, 575)
+        font-size: 16px
+
+    .nightly-builds,
+    .lts,
+    .legacy-lts,
+    .why-contribute,
+    .start,
+    .image-signatures,
+    .guidelines
+
+      p
+        line-height: 1.6
+        letter-spacing: $px
+        color: $grey-dark
+        &:nth-child(1n+2)
+          margin-top: 15px
+        &:nth-of-type(1)
+          margin-top: 10px
+
+        +resolution(0, 575)
+          font-size: 16px
+        +resolution(576)
+          font-size: 18px
+
+      a
+        color: $primary
+        +resolution(0, 575)
+          text-decoration: none
+
+        &:hover
+          text-decoration: none
+
+        &.footnote
+          margin: 0 0 0 2px
+          text-decoration: none
+
+.image-signatures
+
+  h2
+    +resolution(576)
+      margin-top: 40px !important
+    +resolution(0, 575)
+      margin-top: 32px !important

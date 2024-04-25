@@ -1,0 +1,23 @@
+@import settings
+
+.containerCustom
+  display: flex
+  width: 100%
+  +resolution(0, 575)
+    padding: 0 20px
+  +resolution(576)
+    padding: 0 30px
+  +resolution(0, 991)
+    max-width: 738px
+  +resolution(992, 1200)
+    max-width: calc(100% - 100px)
+  +resolution(1200, 1499)
+    max-width: 1170px
+  +resolution(1500)
+    max-width: 1370px
+
+  a
+    color: $primary
+    &.footnote
+      margin: 0 2px 0 0
+      text-decoration: none

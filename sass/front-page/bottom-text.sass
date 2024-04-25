@@ -1,27 +1,34 @@
-@import ../settings.sass
+@import ../settings
 
 .bottom-text
-  &__inner
-    padding: 138px 0 182px
-    max-width: 657px
-    margin-left: auto
-    text-align: center
-    margin-right: auto
-    +resp(lg)
-      padding: 138px 250px 182px
-    +resp(md)
-      padding: 90px 50px 126px
-    +resp(sm)
-      padding: 56px 50px 64px
-    +resp(esm)
-      padding: 56px 20px 64px
-    h2
-      padding-bottom: 25px
-      +resp(sm)
-        padding-bottom: 0
-    p
+  text-align: center
+  display: flex
+  justify-content: center
+  +resolution(992)
+    padding: 144px 0
+  +resolution(576, 991)
+    padding: 96px 0
+  +resolution(0, 575)
+    padding: 64px 0
+
+  div
+    display: flex
+    flex-direction: column
+
+  h2
+    letter-spacing: $em
+    color: $black
+    +resolution(576)
+      font-size: 34px
+    +resolution(0, 575)
+      font-size: 22px
+  p
+    letter-spacing: $px
+    font-weight: 500
+    color: $black2
+    +resolution(576)
       font-size: 18px
-      +resp(sm)
-        font-size: 16px
-      +resp(esm)
-        font-size: 14px
+      margin-top: 24px
+    +resolution(0, 575)
+      font-size: 16px
+      margin-top: 16px

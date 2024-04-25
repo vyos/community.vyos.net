@@ -1,0 +1,76 @@
+@import settings
+
+ul
+  list-style: none
+  padding-left: 0
+  margin-top: 16px !important
+
+  li
+    position: relative
+    padding-left: 25px
+    font-weight: 500
+    color: $grey-dark
+    letter-spacing: $px
+    +resolution(0, 575)
+      font-size: 16px
+    +resolution(576)
+      font-size: 18px
+
+    &:not(&:last-child)
+      margin-bottom: 12px
+
+    &:before
+      position: absolute
+      left: 10px
+      content: ''
+      display: flex
+      justify-content: center
+      align-items: center
+      border-radius: 50%
+      width: 5px
+      height: 5px
+      background-color: $grey-dark
+
+    a
+      color: $primary
+      +resolution(0, 575)
+        text-decoration: none
+
+.legacy-lts,
+.why-contribute,
+.image-signatures,
+div#rolling-current
+  ul
+    li
+      &:before
+        top: 50%
+        transform: translate(-50%, -50%)
+
+.nightly-builds,
+.start,
+.lts
+  ul
+    li
+      &:before
+        transform: translate(-50%, -50%)
+        +resolution(992)
+          top: 50%
+        +resolution(576, 991)
+          top: 10px
+        +resolution(0, 575)
+          top: 8px
+
+.guidelines
+  ul
+    li
+      &:before
+        top: 10px
+        transform: translateX(-50%)
+
+.links-columns
+  ul
+    li
+      padding-left: 0
+
+      &:before
+        content: none

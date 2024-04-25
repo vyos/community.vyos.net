@@ -1,20 +1,31 @@
-@import ../settings.sass
-  
+@import ../settings
+
 section.main-text
-  max-width: 884px
-  margin-left: auto
-  margin-right: auto
-  padding: 143px 0
-  text-align: center
-  +resp(lg)
-    padding: 143px 0
-  +resp(md)
-    padding: 90px 0
-  +resp(sm)
-    padding: 0 0 55px
-  p
-    font-size: 18px
-    +resp(sm)
-      font-size: 16px
-    +resp(esm)
-      font-size: 14px
+  display: flex
+  +resolution(0, 575)
+    padding: 64px 0
+  +resolution(576)
+    justify-content: center
+  +resolution(576, 991)
+    padding: 96px 0
+  +resolution(992)
+    padding: 144px 0
+
+  .containerCustom
+    +resolution(0, 575)
+      flex-direction: column
+
+    img
+      width: 72px
+      height: 72px
+
+    p
+      font-size: 18px
+      letter-spacing: $px
+      color: $grey-dark
+      +resolution(576)
+        font-size: 18px
+        margin-left: 30px
+      +resolution(0, 575)
+        font-size: 16px
+        margin-top: 16px

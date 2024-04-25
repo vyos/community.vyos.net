@@ -1,0 +1,21 @@
+.background
+  position: absolute
+  z-index: 0
+  +resolution(0, 575)
+    display: none
+  +resolution(576, 991)
+    top: -516px
+    right: -280px
+  +resolution(992)
+    top: -600px
+  +resolution(992, 1199)
+    right: -250px
+  +resolution(1200, 1300)
+    right: -220px
+  +resolution(1300)
+    right: -150px
+
+  canvas
+    +resolution(576)
+      width: 1024px !important
+      height: 840px !important

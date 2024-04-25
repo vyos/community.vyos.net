@@ -1,0 +1,16 @@
+.navigation 
+  background: transparent
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  z-index: 2
+  display: flex 
+  justify-content: center
+  transition: background-color 250ms linear, box-shadow 250ms linear
+
+  &.background__white
+    background-color: $white
+    
+  &.bottom-shadow
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .12)

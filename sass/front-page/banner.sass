@@ -1,57 +1,75 @@
-@import ../settings.sass
-  
+@import ../settings
+
 section.banner
-  background-image: url("/img/front-page/banner/banner-bg.svg")
-  background-position: bottom
-  background-repeat: no-repeat
-  background-size: cover
-  padding: 77px 0 87px
-  +resp(sm)
-    background-image: url("/img/front-page/banner/banner-bg-sm.svg")
-    padding: 45px 0 0
-  div.sm-none
-    +resp(sm)
-      padding: 0
-  div.banner__text-button
-    max-width: 50%
-    +resp(md)
-      max-width: 60%
-    +resp(sm)
-      margin-bottom: 23px
-      max-width: 100%
-    h1
-      padding-bottom: 57px
-      +resp(sm)
-        text-align: center
-        padding-bottom: 51%
-        padding-left: 20px
-        padding-right: 20px
-    div.banner__btn_container
-      +resp(sm)
-        background-color: $white
-        display: flex
-        justify-content: center
-        padding-left: 20px
-        padding-right: 20px
-      a
-        max-width: 311px
+  background-color: $grey-light2
+  display: flex
+  justify-content: center
+  position: relative
+  overflow: hidden
+  +resolution(0, 575)
+    height: 386px
+    padding-top: 100px
+  +resolution(576, 991)
+    height: 433px
+    padding-top: 110px
+  +resolution(992)
+    height: 459px
+    padding-top: 74px
+    align-items: center
+
+  .containerCustom
+    position: relative
+    +resolution(0, 991)
+      justify-content: center
+
+    .image
+      position: absolute
+      z-index: 1
+      +resolution(0, 575)
+        bottom: 0
+        left: 50%
+        transform: translateX(-50%)
+        width: 373px
+        height: 225px
+      +resolution(576, 991)
+        bottom: 0
+        left: 50%
+        transform: translateX(-50%)
+        width: 550px
+        height: 300px
+      +resolution(992, 1100)
+        bottom: -220px
+        right: -20px
+        width: 528px
+        height: 320px
+      +resolution(1100, 1300)
+        bottom: -220px
+        right: -20px
+        width: 648px
+        height: 390px
+      +resolution(1300)
+        bottom: -220px
+        right: -150px
+        width: 758px
+        height: 457px
+
+      img
         width: 100%
-        height: 58px
-        background: $black
-        border: 1px solid $black
-        display: inline-flex
-        margin-top: 23px
-        align-items: center
-        justify-content: center
-        font-weight: 700
-        font-size: 16px
-        line-height: 15px
-        color: $white
-        text-decoration: none
-        transition: 0.3s
-        +resp(sm)
-          height: 38px
-          font-size: 14px
-        &:hover
-          background: $white
-          color: $black
+        height: 100%
+
+    .innerDiv
+      +resolution(0, 991)
+        text-align: center
+
+      h1
+        +resolution(992)
+          max-width: 680px
+        +resolution(575, 991)
+          max-width: 709px
+
+      p
+        font-family: $a
+        font-weight: 600
+        letter-spacing: $px
+        color: $grey-normal
+        margin-top: 16px

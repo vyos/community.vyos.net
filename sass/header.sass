@@ -1,82 +1,141 @@
-@import settings.sass
-  
-header
-  background: $white
-  box-shadow: 0px 5px 20px rgba(0, 56, 79, 0.07)
-  padding: 20px 0
-  position: relative
-  +resp(md)
-    padding: 15px 0
-    position: sticky
-    top: 0
-    z-index: 2
-  +resp(esm)
-    padding: 10px 0
-  +resp(xsm)
-    padding: 5px 0
+@import settings
 
-  div.header__inner
+header
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 11
+
+  .logo
+    display: flex
+    align-items: center
+
+    p
+      +resolution(992)
+        font-size: 16px
+        font-weight: 600
+        letter-spacing: $em
+        color: $grey-normal
+      +resolution(0, 991)
+        display: none
+
+    a
+      +resolution(992)
+        margin-right: 20px
+
+  .header
     display: flex
     justify-content: space-between
-    +resp(sm)
-      align-items: center
-    
-    div.header__logo-side
-      display: flex
-      align-items: center
-      a.header__logo
-        display: inherit
-        margin-right: 30px
-        +resp(lg)
-          margin-right: 16px
-        +resp(md)
-          margin-right: 10px
-      div.header__text
-        font-weight: 500
-        line-height: 25px
-        +resp(sm)
-          display: none
-        p
-          font-size: 16px
-          color: #ACACAD
-          +resp(md)
-            font-size: 15px
-          +resp(sm)
-            display: none
+    align-items: center
+    height: 74px
+    width: 100%
+    +resolution(0, 575)
+      border-bottom: 1px solid $grey-light
 
-    div.header__links-side
+  .links
+    display: flex
+    align-items: center
+    +resolution(0, 575)
+      display: none
+
+    a
+      font-weight: 700
+      font-family: $a
+      color: $black
+      letter-spacing: $em
+      text-decoration: none
       display: flex
       align-items: center
-      +resp(xsm)
-        flex-wrap: wrap
-        justify-content: flex-end
-      a
-        font-weight: 600
-        font-size: 15px
-        line-height: 140%
-        text-transform: uppercase
-        text-decoration: none
-        color: $black
-        transition: 0.3s
-        margin-left: 31px
-        text-align: center
-        +resp(lg)
-          font-size: 14px
-          margin-left: 20px
-        +resp(esm)
-          margin-left: 14px
-        +resp(usm)
-          font-size: 13px
-        +resp(xsm)
-          line-height: 180%
-          font-size: 14px
-          margin-left: 24px
-        &:nth-child(1)
-          margin-left: 0
-        &:nth-child(3)
-          +resp(usm)
-            max-width: 100px
-          +resp(xsm)
-            max-width: 100%
+      height: 24px
+      transition: color 250ms linear
+      +resolution(576, 991)
+        font-size: 13px
+        margin-right: 10px
+      +resolution(992)
+        font-size: 14px
+        margin-right: 20px
+      +resolution(0, 575)
+        font-size: 18px
+
+      &:hover
+        color: $primary
+
+      &:last-child
         &:hover
-          color: $orange
+          span
+            color: $primary
+
+        img
+          +resolution(576)
+            margin-right: 5px
+
+        span
+          color: $grey-dark
+          font-size: 14px
+          font-family: $a
+          font-weight: 700
+          letter-spacing: $em
+          transition: color 250ms linear
+
+        &::before
+          content: ''
+          display: block
+          width: 1px
+          height: 100%
+          background-color: $grey-light3
+          +resolution(576)
+            margin-right: 20px
+
+.mobile-menu
+  +resolution(576)
+    display: none
+
+  .upper-part
+    width: 100%
+    height: 74px
+    display: flex
+    align-items: center
+
+    img
+      width: 32px
+      height: 32px
+
+    > img
+      margin-left: 20px
+
+  .bottom-part
+    width: 100%
+    position: absolute
+    top: 100%
+    left: 0
+    z-index: 11
+    display: flex
+    flex-direction: column
+    justify-content: center
+    background: rgb(24 25 28 / 40%)
+    height: 100vh
+    justify-content: flex-start
+
+    .bottom-menu
+      width: 100%
+      padding: 0 15px 32px
+      background: $white
+
+    a
+      padding: 24px 0
+      max-height: 64px
+      display: flex
+      align-items: center
+      font-weight: 700
+      font-family: $a
+      color: $black
+      letter-spacing: $em
+      text-decoration: none
+      font-size: 18px
+      border-bottom: 1px solid $grey-light
+
+  .not__visible
+    display: none
+
+  .visible
+    display: flex

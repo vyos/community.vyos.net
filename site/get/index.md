@@ -1,48 +1,85 @@
-# Get VyOS
+<div class='get-page'>
+  <section class='banner'>
+    <div class='containerCustom'>
+      <div class='left-shape'>
+        <img src='/img/global/shape-left.svg' />
+      </div>
+      <div class='right-shape'>
+        <img src='/img/global/shape-right.svg' />
+      </div>
 
-VyOS has three release "channels": nightly builds, monthly snapshots, and LTS releases.
+  <div class='banner-div'>
 
-## Nightly builds
+  # Get VyOS
 
-Nightly builds are automatically produced at least once a day and include all the latest
-code (bug fixes and features) from maintainers and community contributors.
+  VyOS has three release "channels": nightly builds, monthly snapshots, and LTS releases.
 
-Nightly builds are not hand-tested before upload. A basic set of automated
-[smoke tests](https://github.com/vyos/vyos-1x/tree/current/smoketest/scripts/cli) is executed
-for each build ensuring that basic functionality is working. In addition we load arbitrary
-[configurations](https://github.com/vyos/vyos-1x/tree/current/smoketest/configs) to ensure
-there are no errors during config migration and system bootup.
+  </div>
 
-Nightly builds are for you if you...
+  </div>
+  </section>
 
-* want to help us test latest VyOS code
-* want to check whether a bug is fixed in the latest code
-* made a patch and want to test it before making a pull request
+  <section class='content-section'>
+    <div class='content-div'>
+      <div class='nightly-builds'>
 
-Go to the [nightly builds page](/get/nightly-builds).
+  ## Nightly builds
 
-## LTS release
+  Nightly builds are automatically produced at least once a day and include all the latest
+  code (bug fixes and features) from maintainers and community contributors.
 
-Prebuilt LTS release images are available to people and companies who help us move the project
-forward.
+  Nightly builds are not hand-tested before upload. A basic set of automated
+  [smoke tests](https://github.com/vyos/vyos-1x/tree/current/smoketest/scripts/cli) is executed
+  for each build ensuring that basic functionality is working. In addition we load arbitrary
+  [configurations](https://github.com/vyos/vyos-1x/tree/current/smoketest/configs) to ensure
+  there are no errors during config migration and system bootup.
 
-There are many ways to get access:
+  Nightly builds are for you if you...
 
-* Purchase a [software access subscription](https://vyos.io/subscriptions/software/).
-* Get free access with a [support subscription](https://vyos.io/subscriptions/support/).
-* Apply for a free subscription as a [contributor](/get/contributor-subscriptions).
-* Apply for a free subscription as an
-  [educational instutution](https://vyos.io/community/for-educational-institutions/),
-  [non-profit](https://vyos.io/community/for-non-commercial-organizations/), or an
-  [emergency service](http://vyos.io/community/for-first-responders/).
+  - want to help us test latest VyOS code
+  - want to check whether a bug is fixed in the latest code
+  - made a patch and want to test it before making a pull request
 
-You can also build an LTS image from the source.
+  Go to the [nightly builds page](/get/nightly-builds).
 
-## Legacy LTS releases
+  </div>
 
-As a courtesy, we offer images of legacy LTS releases. To access all available legacy LTS releases, kindly complete the form below. Upon submission, you will receive an email containing links to download the images.
+  <div class='lts'>
 
-<div id="application-form">
+  ## LTS release
+
+  Prebuilt LTS release images are available to people and companies who help us move the project
+  forward.
+
+  There are many ways to get access:
+
+  - Purchase a [software access subscription](https://vyos.io/subscriptions/software/).
+  - Get free access with a [support subscription](https://vyos.io/subscriptions/support/).
+  - Apply for a free subscription as a [contributor](/get/contributor-subscriptions).
+  - Apply for a free subscription as an
+    [educational instutution](https://vyos.io/community/for-educational-institutions/),
+    [non-profit](https://vyos.io/community/for-non-commercial-organizations/), or an
+    [emergency service](http://vyos.io/community/for-first-responders/).
+
+  Or you can build an LTS image from source.
+
+  </div>
+
+  <div class='legacy-lts'>
+
+  ## Legacy LTS releases
+
+  As a courtesy, we offer images of legacy LTS releases. To access all available legacy LTS releases, kindly complete the form below. Upon submission, you will receive an email containing links to download the images.
+
+  </div>
+
+  </div>
+
+  </section>
+
+  <section class='form'>
+    <div class='containerCustom'>
+      <div id="application-form" class='application-form'>
 
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
 <script>
@@ -52,5 +89,10 @@ As a courtesy, we offer images of legacy LTS releases. To access all available l
     formId: "ebb05a53-23d6-4454-824d-817d0d8b86d4"
   });
 </script>
+
+  </div>
+  </div>
+
+  </section>
 
 </div>

@@ -1,42 +1,40 @@
 // colors
-$white : #ffffff
-$orange : #FFBE12
-$black : #18191C
-$grey : #747577
-$dark-orange: #FD8F01
-$form-fields: #666666
+$white: #FFFFFF
+$orange: #FFBE12
+$black: #121010
+$grey: #747577
+$primary: #FD8F01
+$secondary: #FFAE12
+$tretiary: #FFBF12
+$grey-light: #E1E4E5
+$grey-normal: #8D9499
+$grey-light2: #FAFAFA
+$grey-dark: #525659
+$grey-light3: #C4C9CC
+$grey-light4: #C6C9CC
+$grey-dark2: #636A6D
+$black2: #18191C
+$light: #F6F7F7
+$red: #FF4057
+
+// gradients
+$lg1: linear-gradient(135deg, #FF9000 0%, #FFBF12 100%)
+
+//fonts
+$a: 'Archivo', sans-serif
+$r: 'Roboto', sans-serif
+
+//letter-spacings
+$em: -0.02em
+$px: -0.5px
 
 // mixins
-@mixin resp($media)
-	// 1200px and up
-	@if $media == xlg
-		@media only screen and (min-width: 1200px)
+@mixin resolution($minSize, $maxSize: false)
+
+	@if $minSize and $maxSize
+		@media only screen and (min-width: $minSize + 'px') and (max-width: $maxSize + 'px')
 			@content
-	// 1400px and down
-	@if $media == elg
-		@media only screen and (max-width: 1400px)
-			@content
-	// 1199px and down
-	@if $media == lg
-		@media only screen and (max-width: 1199px)
-			@content
-	// 991px and down
-	@if $media == md
-		@media only screen and (max-width: 991px)
-			@content
-	// 767px and down
-	@if $media == sm
-		@media only screen and (max-width: 767px)
-			@content
-	// 575px and down
-	@if $media == esm
-		@media only screen and (max-width: 575px)
-			@content
-	// 450px and down
-	@if $media == usm
-		@media only screen and (max-width: 450px)
-			@content
-	// 375px and down
-	@if $media == xsm
-		@media only screen and (max-width: 375px)
+
+	@else
+		@media only screen and (min-width: $minSize + 'px')
 			@content

@@ -1,83 +1,141 @@
-@import ../settings.sass
+@import ../settings
 
 section.inform-columns
+  display: flex
+  justify-content: center
 
-  div.inform-column__inner
+  .inner-div
     display: grid
     grid-template-columns: 1fr 1fr
-    grid-gap: 23px 30px
-    +resp(lg)
-      grid-gap: 20px
-      +resp(sm)
-        grid-template-columns: 1fr
-        
-    div.inform-column__item
-      background: #F3F4F4
+    grid-gap: 30px
+    +resolution(0, 991)
+      grid-template-columns: 1fr
+
+    .item
+      background: $light
+      position: relative
       display: grid
       grid-template-rows: auto 1fr auto
-      grid-gap: 40px
-      padding: 48px 54px 59px
-      +resp(md)
-        grid-gap: 25px
-        padding: 30px 25px
-      +resp(sm)
-        padding: 30px 24px 40px
-        grid-gap: 15px
-        grid-template-rows: auto 1fr 65px
-      
-      div.inform-column__header
+      +resolution(576)
+        padding: 40px
+      +resolution(0, 575)
+        padding: 30px 20px
+
+      &:nth-child(odd)
+        &::before
+          content: ""
+          position: absolute
+          top: 0
+          left: 0
+          background-color: $white
+          clip-path: polygon(0 0, 0 100%, 100% 0)
+          +resolution(576)
+            width: 40px
+            height: 40px
+          +resolution(0, 575)
+            width: 20px
+            height: 20px
+
+        &::after
+          content: ""
+          position: absolute
+          bottom: 0
+          right: 0
+          background-color: $white
+          clip-path: polygon(100% 100%, 0 100%, 100% 0)
+          +resolution(576, 992)
+            width: 40px
+            height: 40px
+          +resolution(0, 575)
+            width: 20px
+            height: 20px
+
+      &:nth-child(2n)
+        &::before
+          content: ""
+          position: absolute
+          top: 0
+          left: 0
+          background-color: $white
+          clip-path: polygon(0 0, 0 100%, 100% 0)
+          +resolution(576)
+            width: 40px
+            height: 40px
+          +resolution(0, 575)
+            width: 20px
+            height: 20px
+
+        &::after
+          content: ""
+          position: absolute
+          bottom: 0
+          right: 0
+          background-color: $white
+          clip-path: polygon(100% 100%, 0 100%, 100% 0)
+          +resolution(576)
+            width: 40px
+            height: 40px
+          +resolution(0, 575)
+            width: 20px
+            height: 20px
+
+      .header
         display: flex
-        align-items: center
-        div.inform-column__icon
-          padding-right: 19px
-        div.inform-column__title
+        flex-direction: column
+
+        img 
+          width: 54px
+          height: 54px
+
+        div
+
           h3
             font-weight: bold
-            font-size: 28px
-            line-height: 150%
-            letter-spacing: 0.02em
-            color: #000000
-            +resp(sm)
-              font-size: 21px
-      
-      div.inform-column__data
+            letter-spacing: $em
+            color: $black
+            margin-top: 16px
+            +resolution(992)
+              font-size: 24px
+            +resolution(0, 991)
+              font-size: 20px
+
+      .content
+        +resolution(992)
+          margin: 24px 0
+        +resolution(0, 991)
+          margin: 16px 0
+
         p
           text-align: left
-          margin-bottom: 29px
           font-size: 16px
-          +resp(md)
+          +resolution(992)
             margin-bottom: 20px
+          +resolution(0, 991)
+            margin-bottom: 15px
           &:last-child
-            margin-bottom: 10px
-            +resp(sm)
-              margin-bottom: 0
-          +resp(sm)
-            line-height: 180%
-            font-size: 14px
-            margin-bottom: 25px
-      
-      div.inform-column__button
-        +resp(sm)
-          align-self: end
-        a.inform-column__btn
-          max-width: 291px
-          padding: 10px
-          min-height: 38px
-          color: #18191C !important
+            margin-bottom: 0
+
+      a
+        max-width: 291px
+        min-height: 58px
+        color: $black !important
+        display: flex
+        align-items: center
+        font-weight: 700
+        font-size: 16px
+        text-decoration: none
+        transition: 0.3s
+        letter-spacing: $em
+
+        &::after
+          content: url('/img/global/link-arrow.svg')
           display: flex
+          margin-left: 15px
           align-items: center
-          justify-content: center
-          text-align: center
-          background: $orange
-          border: 1px solid $orange
-          font-weight: 700
-          font-size: 16px
-          color: $black
-          text-decoration: none
-          transition: 0.3s
-          line-height: 1.5
-          +resp(sm)
-            min-height: 28px
-            font-size: 14px
-          &:hover
-            background: $white
+          padding-top: 5px
+
+        &:hover
+          color: $secondary !important
+
+        &:active
+          color: $primary !important

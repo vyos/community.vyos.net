@@ -1,0 +1,42 @@
+@import settings
+
+.staging
+  width: 100%
+  display: flex
+  justify-content: center
+  background-color: $white
+
+  .containerCustom
+    text-align: center
+    border: 2px solid $red
+    padding: 10px 0
+    flex-direction: column
+
+    h2
+      font-size: 16px
+      letter-spacing: $em
+      color: $black
+      line-height: 1.4
+
+    p
+      font-size: 14px
+      letter-spacing: $em
+      color: $grey-dark
+      line-height: 1.2
+
+    a
+      padding-right: 5px
+
+.staging-fix
+  +resolution(992)
+    padding-top: 220px !important
+  +resolution(576, 991)
+    padding-top: 240px !important
+  +resolution(476, 575)
+    padding-top: 240px !important
+  +resolution(376, 475)
+    padding-top: 260px !important
+  +resolution(0, 375)
+    padding-top: 290px !important
+
+

@@ -2,13 +2,13 @@
 
 name: CI
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# Controls when the action will run.
+# We run this workflow on pushes and also every night to pick up fresh nightly builds
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
+      - production
   schedule:
     - cron: "0 3 * * *"
   workflow_dispatch:

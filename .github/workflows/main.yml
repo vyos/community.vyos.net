@@ -23,8 +23,8 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    # For the main branch, this job should use the staging environment
-    environment: staging
+    environment:
+      name: ${{ github.ref_name }}
 
     # The type of runner that the job will run on
     runs-on: ubuntu-latest

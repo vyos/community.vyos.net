@@ -13,6 +13,10 @@ on:
     - cron: "0 3 * * *"
   workflow_dispatch:
   workflow_call:
+    inputs:
+      branch:
+        required: true
+        type: string
     secrets:
       NETLIFY_TOKEN:
         required: true
@@ -31,11 +35,19 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    # If the workflow is called from this repo, check out the branch it's called from
     - uses: actions/checkout@v3
+      if: ${{ inputs.branch == '' }}
       with:
         repository: vyos/community.vyos.net
         ref: ${{ github.ref_name }}
+
+    # If the workflow is called externally, check out the branch from its inputs
+    - uses: actions/checkout@v3
+      if: ${{ inputs.branch != '' }}
+      with:
+        repository: vyos/community.vyos.net
+        ref: ${{ inputs.branch }}
 
     - name: Install build dependencies from the repos
       run: |

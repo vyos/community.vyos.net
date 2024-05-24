@@ -36,7 +36,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # If the workflow is called from this repo, check out the branch it's called from
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       if: ${{ inputs.branch == '' }}
       with:
         repository: vyos/community.vyos.net
@@ -63,7 +63,7 @@ jobs:
 
     - name: Install soupault
       env:
-        SOUPAULT_VERSION: 4.7.0
+        SOUPAULT_VERSION: 4.10.0
       run: |
         echo Downloading and unpacking soupault
         wget https://github.com/PataphysicalSociety/soupault/releases/download/$SOUPAULT_VERSION/soupault-$SOUPAULT_VERSION-linux-x86_64.tar.gz

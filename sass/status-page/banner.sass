@@ -1,0 +1,82 @@
+@import ../settings
+
+.status-page
+
+  .banner
+    background-color: $white
+    display: flex
+    justify-content: center
+    position: relative
+    overflow: hidden
+    +resolution(0, 575)
+      height: 232px
+      padding-top: 106px
+    +resolution(576, 991)
+      height: 248px
+      padding-top: 128px
+    +resolution(992)
+      height: 275px
+      padding-top: 128px
+      align-items: center
+
+    h1
+      letter-spacing: $em
+      +resolution(992)
+        font-size: 48px
+      +resolution(0, 991)
+        font-size: 28px
+
+    p
+      letter-spacing: $px
+      font-weight: 600
+      color: $grey-dark
+      margin-top: 16px
+      +resolution(992)
+        font-size: 18px
+      +resolution(0, 991)
+        font-size: 16px
+
+    .containerCustom
+      position: unset
+
+      .banner-div
+        width: 100%
+        border-bottom: 1px solid $grey-light3
+        text-align: center
+        +resolution(0, 575)
+          padding-bottom: 32px
+        +resolution(576, 991)
+          padding-bottom: 54px
+        +resolution(992)
+          padding-bottom: 74px
+
+  .left-shape
+    position: absolute
+    +resolution(992)
+      top: 0
+      left: 0
+    +resolution(576, 991)
+      top: -100px
+      left: -40px
+    +resolution(0, 575)
+      display: none
+
+    img
+      width: 280px
+      height: 280px
+
+  .right-shape
+    position: absolute
+    +resolution(992)
+      top: 0
+      right: 0
+    +resolution(576, 991)
+      top: -100px
+      right: -60px
+    +resolution(0, 575)
+      top: -100px
+      right: -60px
+
+    img
+      width: 385px
+      height: 400px

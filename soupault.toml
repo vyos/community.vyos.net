@@ -114,3 +114,10 @@ Disallow: /
 
   after = "insert-nightly-build-containers"
   profile = "live"
+
+
+[widgets.release_status]
+  page = "status.md"
+  widget = "release-status"
+  file = "release-status.toml"
+  selector = ".content-div"

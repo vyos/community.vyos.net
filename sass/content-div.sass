@@ -10,7 +10,8 @@
     +resolution(0, 575)
       padding-top: 32px
 
-.contribute-page
+.contribute-page,
+.status-page
 
   .content-section
     +resolution(992)
@@ -41,7 +42,8 @@
 .get-page,
 .contribute-page,
 .nightly-builds-page,
-.contributor-subs-page
+.contributor-subs-page,
+.status-page
 
   .content-section
     display: flex
@@ -127,3 +129,26 @@
       margin-top: 40px !important
     +resolution(0, 575)
       margin-top: 32px !important
+
+.status-page
+
+  .content-div
+    +resolution(992)
+      max-width: 945px
+
+    +resolution(0, 575)
+      padding-bottom: 20px
+      scroll-behavior: smooth
+
+    &::-webkit-scrollbar 
+      +resolution(0, 575)
+        height: 3px
+    
+    &::-webkit-scrollbar-track 
+      +resolution(0, 575)
+        margin: 0 20px
+    
+    &::-webkit-scrollbar-thumb 
+      +resolution(0, 575)
+        background-color: #99A0A5
+    

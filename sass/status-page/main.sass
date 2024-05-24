@@ -1,0 +1,95 @@
+@import ../settings
+@import banner
+
+html 
+  scroll-padding-top: 74px !important
+
+.status-page
+
+  .content-div
+
+    +resolution(0, 575)
+      overflow-x: auto
+
+    h3
+      font-size: 24px
+      letter-spacing: $em
+      color: $black
+      text-decoration: none
+      text-transform: capitalize
+
+    p
+      font-size: 16px
+      font-weight: 600
+      letter-spacing: $px
+      color: $grey-dark
+      margin-top: 5px
+
+    a
+      font-size: 18px
+      font-weight: 600
+      letter-spacing: $px
+      color: $primary
+      text-decoration: none
+      margin-top: 5px
+
+    table 
+      margin-top: 18px
+      border-collapse: collapse
+
+      +resolution(0, 575)
+        width: 640px
+
+      th
+        +resolution(576)
+          max-height: 42px
+          padding: 12px 20px
+        +resolution(0, 575)
+          max-height: 48px
+          padding: 12px
+        
+      td
+        +resolution(576)
+          max-height: 64px
+          padding: 20px
+        +resolution(0, 575)
+          max-height: 48px
+          padding: 12px
+
+        &:nth-of-type(1)
+          +resolution(0, 575)
+            width: 118px
+        &:nth-of-type(2)
+          +resolution(0, 575)
+            width: 205px
+        &:nth-of-type(3)
+          +resolution(0, 575)
+            width: 223px
+        &:nth-of-type(4)
+          text-transform: capitalize
+          +resolution(0, 575)
+           width: 57px
+
+      th
+        font-weight: 600
+        font-size: 14px
+        letter-spacing: $em
+        color: $grey-dark
+        text-align: left
+
+      td 
+        font-weight: 400
+        font-size: 14px
+        letter-spacing: $em
+        color: $grey-dark
+        text-align: left
+
+      tr
+
+        &:nth-child(even)
+          background-color: $grey-light2
+        &:nth-child(odd)
+          background-color: transparent
+        &:not(&:nth-last-child(1))
+          border-bottom: 1px solid $grey-light
+          

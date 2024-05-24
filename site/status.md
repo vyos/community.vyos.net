@@ -1,4 +1,4 @@
-<div class='contribute-page'>
+<div class='status-page'>
   <section class='banner'>
     <div class='containerCustom'>
       <div class='left-shape'>

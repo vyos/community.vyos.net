@@ -1,11 +1,10 @@
 [release.sagitta]
-  latest = "1.4.0-epa3"
+  latest = "1.4.0"
 
   security_advisory = [
-    {cve="CVE-2024-2961", title="GNU libc iconv buffer overflow", description="Potential DoS in any application that encodes strings", status="fixed"},
   ]
 
-  notes = "Early production access, please report any issues!"
+  notes = "GA release"
 
 [release.equuleus]
   latest = "1.3.7"

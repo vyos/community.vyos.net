@@ -39,21 +39,24 @@ function generate_table(vyos_version, version_table)
       HTML.append_child(target_elem, notes)
    end
 
-   local status_table = HTML.create_element("table")
-   HTML.append_child(status_table, HTML.parse("<tr><th>CVE</th><th>Name</th><th>Description</th><th>Status</th></tr>"))
+   if not Table.is_empty(version_table["security_advisory"]) then
+     Log.debug(JSON.pretty_print(version_table["security_advisory"]))
+     local status_table = HTML.create_element("table")
+     HTML.append_child(status_table, HTML.parse("<tr><th>CVE</th><th>Name</th><th>Description</th><th>Status</th></tr>"))
       
-   local i = 1
-   while version_table["security_advisory"][i] do
-      local row = version_table["security_advisory"][i]
-      local advisory = HTML.create_element("tr")
-      HTML.append_child(advisory, HTML.create_element("td", row["cve"]))
-      HTML.append_child(advisory, HTML.create_element("td", row["title"]))
-      HTML.append_child(advisory, HTML.create_element("td", row["description"]))
-      HTML.append_child(advisory, HTML.create_element("td", row["status"]))
-      HTML.append_child(status_table, advisory)
-      i = i + 1
+     local i = 1
+     while version_table["security_advisory"][i] do
+        local row = version_table["security_advisory"][i]
+        local advisory = HTML.create_element("tr")
+        HTML.append_child(advisory, HTML.create_element("td", row["cve"]))
+        HTML.append_child(advisory, HTML.create_element("td", row["title"]))
+        HTML.append_child(advisory, HTML.create_element("td", row["description"]))
+        HTML.append_child(advisory, HTML.create_element("td", row["status"]))
+        HTML.append_child(status_table, advisory)
+        i = i + 1
+     end
+     HTML.append_child(HTML.select_one(page, selector), status_table)
    end
-   HTML.append_child(HTML.select_one(page, selector), status_table)
 end
 
 if toml_string then

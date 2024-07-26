@@ -40,7 +40,7 @@
   Once you download an image and its `.minisig` file, you can verify its integrity with this command:
 
   ```
-  minisign -Vm <ISO file> -P RWTclGe42GmvIX/xnNiXdigNll7NSfpYGl1rj+sEERcLgoEsse5EwAgA
+  minisign -Vm <ISO file> -P RWSIhkR/dkM2DSaBRniv/bbbAf8hmDqdbOEmgXkf1RxRoxzodgKcDyGq
   ```
 
   If in doubt, you can get the public key from the [nightly builds repository](https://github.com/vyos/vyos-rolling-nightly-builds/blob/main/minisign.pub).

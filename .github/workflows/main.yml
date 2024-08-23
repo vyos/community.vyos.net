@@ -43,7 +43,7 @@ jobs:
         ref: ${{ github.ref_name }}
 
     # If the workflow is called externally, check out the branch from its inputs
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       if: ${{ inputs.branch != '' }}
       with:
         repository: vyos/community.vyos.net

@@ -15,7 +15,7 @@ import json
 import github
 import jinja2
 
-REPO = 'vyos/vyos-rolling-nightly-builds'
+REPO = 'vyos/vyos-nightly-build'
 
 def list_images(repo):
     images = []

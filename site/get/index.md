@@ -12,7 +12,7 @@
 
   # Get VyOS
 
-  VyOS has three release "channels": nightly builds, monthly snapshots, and LTS releases.
+  VyOS has two release "channels": rolling release and LTS releases.
 
   </div>
 
@@ -23,24 +23,19 @@
     <div class='content-div'>
       <div class='nightly-builds'>
 
-  ## Nightly builds
+  ## Rolling release
 
-  Nightly builds are automatically produced at least once a day and include all the latest
-  code (bug fixes and features) from maintainers and community contributors.
+  Rolling release builds include all latest developments from maintainers and community contributors.
+  There are no stability guarantees — anything may change, experimental features can be added,
+  and old features can be removed at any time. They are meant for development and testing.
 
-  Nightly builds are not hand-tested before upload. A basic set of automated
-  [smoke tests](https://github.com/vyos/vyos-1x/tree/current/smoketest/scripts/cli) is executed
-  for each build ensuring that basic functionality is working. In addition we load arbitrary
-  [configurations](https://github.com/vyos/vyos-1x/tree/current/smoketest/configs) to ensure
-  there are no errors during config migration and system bootup.
-
-  Nightly builds are for you if you...
+  Rolling release builds are for you if you...
 
   - want to help us test latest VyOS code
   - want to check whether a bug is fixed in the latest code
   - made a patch and want to test it before making a pull request
 
-  Go to the [nightly builds page](/get/nightly-builds).
+  Go to the [rolling release page](/get/nightly-builds) to download.
 
   </div>
 
@@ -61,15 +56,14 @@
     [non-profit](https://vyos.io/community/for-non-commercial-organizations/), or an
     [emergency service](http://vyos.io/community/for-first-responders/).
 
-  Or you can build an LTS image from source.
-
   </div>
 
   <div class='legacy-lts'>
 
   ## Legacy LTS releases
 
-  As a courtesy, we offer images of legacy LTS releases. To access all available legacy LTS releases, kindly complete the form below. Upon submission, you will receive an email containing links to download the images.
+  As a courtesy, we offer images of legacy LTS releases. To access all available legacy LTS releases, complete the form below.
+  Upon submission, you will receive an email containing links to download the images.
 
   </div>
 

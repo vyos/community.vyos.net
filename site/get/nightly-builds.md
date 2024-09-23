@@ -10,7 +10,7 @@
 
   <div class='banner-div'>
 
-  # VyOS nightly builds
+  # VyOS rolling release
 
   </div>
 
@@ -21,14 +21,12 @@
     <div class='content-div'>
       <div class='image-signatures'>
 
-  VyOS nightly builds are automatically produced from the `current` branch and the development branch for the LTS release,
-  at least once a day.
+  VyOS rolling release builds are automatically produced from the `current` branch at least once a day.
   They include all the latest code from maintainers and community contributors.
 
-  Nightly builds are not hand-tested before upload. A basic set of automated
-  [smoke tests](https://github.com/vyos/vyos-1x/tree/current/smoketest/scripts/cli) is executed
-  for each build ensuring that basic functionality is working. In addition we load arbitrary
-  [configurations](https://github.com/vyos/vyos-1x/tree/current/smoketest/configs) to ensure
+  Rolling release builds are not hand-tested before upload.
+  They undergo a sequence of automated [smoke tests](https://github.com/vyos/vyos-1x/tree/current/smoketest/scripts/cli).
+  In addition we load arbitrary [configurations](https://github.com/vyos/vyos-1x/tree/current/smoketest/configs) to ensure
   there are no errors during config migration and system bootup.
 
   ## Verifying image signatures
@@ -47,7 +45,7 @@
   If you are _really_ in doubt (i.e., you have a reason to suspect that the repository and/or this website were compromised),
   you should report that to the maintainers.
 
-  Currently, we create nightly builds with GitHub Actions and store them in releases of the [vyos/vyos-nightly-build](https://github.com/vyos/vyos-nightly-build/releases)
+  Currently, we create rolling release builds with GitHub Actions and store them in releases of the [vyos/vyos-nightly-build](https://github.com/vyos/vyos-nightly-build/releases)
   repository. Here is an auto-generated list of available builds.
 
   </div>

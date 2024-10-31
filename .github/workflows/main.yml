@@ -9,6 +9,7 @@ on:
     branches:
       - main
       - production
+      - amplify
   schedule:
     - cron: "0 3 * * *"
   workflow_dispatch:
@@ -18,15 +19,15 @@ on:
         required: true
         type: string
     secrets:
-      NETLIFY_TOKEN:
+      AWS_AMPLIFY_ACCESS_KEY_ID:
         required: true
-      GH_ACCESS_TOKEN:
+      AWS_AMPLIFY_SECRET_ACCESS_KEY:
         required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  deploy:
     environment:
       name: ${{ github.ref_name }}
 
@@ -35,55 +36,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # If the workflow is called from this repo, check out the branch it's called from
-    - uses: actions/checkout@v4
-      if: ${{ inputs.branch == '' }}
-      with:
-        repository: vyos/community.vyos.net
-        ref: ${{ github.ref_name }}
-
-    # If the workflow is called externally, check out the branch from its inputs
-    - uses: actions/checkout@v4
-      if: ${{ inputs.branch != '' }}
-      with:
-        repository: vyos/community.vyos.net
-        ref: ${{ inputs.branch }}
-
-    - name: Install build dependencies from the repos
+    - name: Deploy to Amplify
       run: |
-        echo Installing build dependencies
-        sudo apt-get update
-        sudo apt-get -y install cmark make npm
-        sudo npm install -g sass@1.32.8
-        # PyGitHub changes its API recently, distros use older versions,
-        # so we install it from PyPI for now
-        python -m venv .
-        source ./bin/activate
-        pip install pygithub jinja2
-
-    - name: Install soupault
-      env:
-        SOUPAULT_VERSION: 4.10.0
-      run: |
-        echo Downloading and unpacking soupault
-        wget https://github.com/PataphysicalSociety/soupault/releases/download/$SOUPAULT_VERSION/soupault-$SOUPAULT_VERSION-linux-x86_64.tar.gz
-        tar xvf soupault-$SOUPAULT_VERSION-linux-x86_64.tar.gz
-        sudo mv -v ./soupault-$SOUPAULT_VERSION-linux-x86_64/soupault /usr/bin/
-
-    - name: Build the site
-      env:
-        GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
-        # SOUPAULT_PROFILE is "staging" for the main branch,
-        # it enabled a preview version warning.
-        # The "live" profile simply enabled listing nightly builds
-        SOUPAULT_OPTS: "--profile ${{ vars.SOUPAULT_PROFILE }} --profile live"
-      run: |
-        source ./bin/activate
-        make all
-
-    - name: Deploy to Netlify
-      env:
-        NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-      run: |
-        zip -r website.zip build/
-        curl --show-error --fail -H "Content-Type: application/zip" -H "Authorization: Bearer $NETLIFY_TOKEN" --data-binary "@website.zip" https://api.netlify.com/api/v1/sites/${{vars.NETLIFY_SITE_NAME}}/deploys
+        curl --request POST \
+          --url https://amplify.${{ vars.AWS_AMPLIFY_REGION }}.amazonaws.com/apps/${{ vars.AWS_AMPLIFY_APP_ID }}/branches/${{ github.ref_name }}/jobs \
+          --header 'Content-Type: application/json' \
+          --data '{"jobType": "RELEASE"}' \
+          --user "${{ secrets.AWS_AMPLIFY_ACCESS_KEY_ID }}:${{ secrets.AWS_AMPLIFY_SECRET_ACCESS_KEY }}" \
+          --aws-sigv4 "aws:amz:${{ vars.AWS_AMPLIFY_REGION }}:amplify"

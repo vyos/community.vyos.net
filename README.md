@@ -1,3 +1,5 @@
+[![vyos.net build](https://github.com/vyos/community.vyos.net/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/vyos/community.vyos.net/actions/workflows/main.yml)
+
 # community.vyos.net
 
 The VyOS community website.

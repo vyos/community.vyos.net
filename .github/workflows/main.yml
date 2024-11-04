@@ -44,3 +44,15 @@ jobs:
           --data '{"jobType": "RELEASE"}' \
           --user "${{ secrets.AWS_AMPLIFY_ACCESS_KEY_ID }}:${{ secrets.AWS_AMPLIFY_SECRET_ACCESS_KEY }}" \
           --aws-sigv4 "aws:amz:${{ vars.AWS_AMPLIFY_REGION }}:amplify"
+
+    - name: Check Amplify build status
+      uses: vyos/amplify-build-status@v2.2
+      with:
+        app-id: ${{ vars.AWS_AMPLIFY_APP_ID }}
+        branch-name: ${{ github.ref_name }}
+        commit-id: HEAD
+        wait: true
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_AMPLIFY_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_AMPLIFY_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ vars.AWS_AMPLIFY_REGION }}

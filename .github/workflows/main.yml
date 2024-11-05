@@ -18,6 +18,12 @@ on:
       branch:
         required: true
         type: string
+      aws_amplify_region:
+        required: true
+        type: string
+      aws_amplify_app_id:
+        required: true
+        type: string
     secrets:
       AWS_AMPLIFY_ACCESS_KEY_ID:
         required: true
@@ -36,23 +42,37 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Set env variables if they were NOT specified as inputs
+      if: ${{ inputs.aws_amplify_region == '' || inputs.aws_amplify_app_id == '' }}
+      run: |
+        echo "AWS_AMPLIFY_REGION=${{ vars.AWS_AMPLIFY_REGION }}" >> $GITHUB_ENV
+        echo "AWS_AMPLIFY_APP_ID=${{ vars.AWS_AMPLIFY_APP_ID }}" >> $GITHUB_ENV
+        echo "BRANCH=${{ github.ref_name }}" >> $GITHUB_ENV
+
+    - name: Set env variables if they were specified as inputs
+      if: ${{ inputs.aws_amplify_region != '' && inputs.aws_amplify_app_id != '' }}
+      run: |
+        echo "AWS_AMPLIFY_REGION=${{ inputs.aws_amplify_region }}" >> $GITHUB_ENV
+        echo "AWS_AMPLIFY_APP_ID=${{ inputs.aws_amplify_app_id }}" >> $GITHUB_ENV
+        echo "BRANCH=${{ inputs.branch }}" >> $GITHUB_ENV
+    
     - name: Deploy to Amplify
       run: |
         curl --request POST \
-          --url https://amplify.${{ vars.AWS_AMPLIFY_REGION }}.amazonaws.com/apps/${{ vars.AWS_AMPLIFY_APP_ID }}/branches/${{ github.ref_name }}/jobs \
+          --url https://amplify.${{ env.AWS_AMPLIFY_REGION }}.amazonaws.com/apps/${{ env.AWS_AMPLIFY_APP_ID }}/branches/${{ env.BRANCH }}/jobs \
           --header 'Content-Type: application/json' \
           --data '{"jobType": "RELEASE"}' \
           --user "${{ secrets.AWS_AMPLIFY_ACCESS_KEY_ID }}:${{ secrets.AWS_AMPLIFY_SECRET_ACCESS_KEY }}" \
-          --aws-sigv4 "aws:amz:${{ vars.AWS_AMPLIFY_REGION }}:amplify"
+          --aws-sigv4 "aws:amz:${{ env.AWS_AMPLIFY_REGION }}:amplify"
 
     - name: Check Amplify build status
       uses: vyos/amplify-build-status@v2.2
       with:
-        app-id: ${{ vars.AWS_AMPLIFY_APP_ID }}
-        branch-name: ${{ github.ref_name }}
+        app-id: ${{ env.AWS_AMPLIFY_APP_ID }}
+        branch-name: ${{ env.BRANCH }}
         commit-id: HEAD
         wait: true
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_AMPLIFY_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_AMPLIFY_SECRET_ACCESS_KEY }}
-        AWS_REGION: ${{ vars.AWS_AMPLIFY_REGION }}
+        AWS_REGION: ${{ env.AWS_AMPLIFY_REGION }}

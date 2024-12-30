@@ -1,14 +1,18 @@
 [release.sagitta]
-  latest = "1.4.0"
+  latest = "1.4.1"
 
   security_advisory = [
+    {cve="CVE-2023-32728", title="RCE in Zabbix agent", description="Remote code execution in Zabbix agent via SMART plugin.", status="fixed"},
+    {cve="CVE-2024-6387", title="regreSSHion", description="Potential remote code execution in OpenSSH server", status="fixed"},
+    {cve="CVE-2024-53981", title="DoS in python-multipart", description="Remote attacker could potentially cause the HTTP API server to crash", status="fixed"}
   ]
 
-  notes = "GA release"
+  notes = "Maintenance and security release"
 
 [release.equuleus]
-  latest = "1.3.7"
+  latest = "1.3.8"
 
-  security_advisory = [
-    {cve="CVE-2024-2961", title="GNU libc iconv buffer overflow", description="Potential DoS in any application that encodes strings", status="fixed"},
-  ]
+  security_advisory = []
+
+  notes = "Bugfix release"
+

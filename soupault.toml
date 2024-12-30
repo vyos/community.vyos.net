@@ -95,7 +95,6 @@ Disallow: /
   widget = "insert_html"
   html = """
     <div id="rolling-current">
-      <h3>Current/Circinus (future 1.5.0)</h3>
     </div>
   """
   selector = "#available-builds"

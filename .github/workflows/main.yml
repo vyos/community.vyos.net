@@ -55,7 +55,6 @@ jobs:
         echo "AWS_AMPLIFY_REGION=${{ inputs.aws_amplify_region }}" >> $GITHUB_ENV
         echo "AWS_AMPLIFY_APP_ID=${{ inputs.aws_amplify_app_id }}" >> $GITHUB_ENV
         echo "BRANCH=${{ inputs.branch }}" >> $GITHUB_ENV
-
     - name: Deploy to Amplify
       run: |
         curl --request POST \

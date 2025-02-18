@@ -12,7 +12,7 @@
 
   # Get VyOS
 
-  VyOS has two release "channels": rolling release and LTS releases.
+  VyOS has three release "channels": rolling release, VyOS Stream, and LTS releases.
 
   </div>
 
@@ -36,6 +36,23 @@
   - made a patch and want to test it before making a pull request
 
   Go to the [rolling release page](/get/nightly-builds) to download.
+
+  </div>
+
+  <div class="lts">
+
+  ## VyOS Stream
+
+  VyOS Stream serves as a technology preview and a quality gate for the upcoming LTS release.
+  New images are releases roughly every quarter.
+
+  Features can only be removed from VyOS Stream through a deprecation procedure,
+  and we promise to only make forward-compatible changes to the configuration syntax
+  and API, so that users, integrators, and developers of external tools
+  can prepare their environments and projects for the future LTS release
+  and help us identify and fix issues.
+
+  Go to the [VyOS Stream page](/get/stream) to download.
 
   </div>
 

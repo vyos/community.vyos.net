@@ -66,7 +66,6 @@
   There are many ways to get access:
 
   - Purchase a [software access subscription](https://vyos.io/subscriptions/software/).
-  - Get free access with a [support subscription](https://vyos.io/subscriptions/support/).
   - Apply for a free subscription as a [contributor](/get/contributor-subscriptions).
   - Apply for a free subscription as an
     [educational instutution](https://vyos.io/community/for-educational-institutions/),

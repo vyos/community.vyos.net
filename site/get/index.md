@@ -75,35 +75,8 @@
 
   </div>
 
-  <div class='legacy-lts'>
-
-  ## Legacy LTS releases
-
-  As a courtesy, we offer images of legacy LTS releases. To access all available legacy LTS releases, complete the form below.
-  Upon submission, you will receive an email containing links to download the images.
-
-  </div>
-
-  </div>
-
   </section>
 
-  <section class='form'>
-    <div class='containerCustom'>
-      <div id="application-form" class='application-form'>
-
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-<script>
-  hbspt.forms.create({
-    region: "na1",
-    portalId: "4129050",
-    formId: "ebb05a53-23d6-4454-824d-817d0d8b86d4"
-  });
-</script>
-
-  </div>
-  </div>
-
-  </section>
+  <section class="form"> </section>
 
 </div>

@@ -49,6 +49,12 @@
 
   ## Releases
 
+  <h3 id="1.5-2025-Q2">VyOS Stream 1.5-2025-Q2</h3>
+
+  * Image: [vyos-1.5-stream-2025-Q2-generic-amd64.iso](https://community-downloads.vyos.dev/stream/1.5-stream-2025-Q2/vyos-1.5-stream-2025-Q2-generic-amd64.iso) ([sig](https://community-downloads.vyos.dev/stream/1.5-stream-2025-Q2/vyos-1.5-stream-2025-Q2-generic-amd64.iso.minisig))
+  * Source code tarball: [circinus-1.5-stream-2025-Q2.tar.gz](https://community-downloads.vyos.dev/stream/1.5-stream-2025-Q2/circinus-1.5-stream-2025-Q2.tar.gz) ([sig](https://community-downloads.vyos.dev/stream/1.5-stream-2025-Q2/circinus-1.5-stream-2025-Q2.tar.gz.minisig))
+
+
   <h3 id="1.5-2025-Q1">VyOS Stream 1.5-2025-Q1</h3>
 
   * Image: [vyos-1.5-stream-2025-Q1-generic-amd64.iso](https://community-downloads.vyos.dev/stream/1.5-stream-2025-Q1/vyos-1.5-stream-2025-Q1-generic-amd64.iso) ([sig](https://community-downloads.vyos.dev/stream/1.5-stream-2025-Q1/vyos-1.5-stream-2025-Q1-generic-amd64.iso.minisig))

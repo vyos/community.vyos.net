@@ -51,8 +51,8 @@
 
   <h3 id="2025.11">VyOS Stream 2025.11</h3>
 
-* Image: [vyos-2025.11-generic-amd64.iso](https://community-downloads.vyos.dev/stream/2025.11/vyos-2025.11-generic-amd64.iso) ([sig](https://community-downloads.vyos.dev/stream/2025.11/vyos-2025.11-generic-amd64.iso.minisig))
-* Source code tarball: [circinus-2025.11.tar.gz](https://community-downloads.vyos.dev/stream/2025.11/circinus-2025.11.tar.gz) ([sig](https://community-downloads.vyos.dev/stream/2025.11/circinus-2025.11.tar.gz.minisig))
+  * Image: [vyos-2025.11-generic-amd64.iso](https://community-downloads.vyos.dev/stream/2025.11/vyos-2025.11-generic-amd64.iso) ([sig](https://community-downloads.vyos.dev/stream/2025.11/vyos-2025.11-generic-amd64.iso.minisig))
+  * Source code tarball: [circinus-2025.11.tar.gz](https://community-downloads.vyos.dev/stream/2025.11/circinus-2025.11.tar.gz) ([sig](https://community-downloads.vyos.dev/stream/2025.11/circinus-2025.11.tar.gz.minisig))
 
   <h3 id="1.5-2025-Q2">VyOS Stream 1.5-2025-Q2</h3>
 

@@ -1,13 +1,10 @@
 [release.sagitta]
-  latest = "1.4.2"
+  latest = "1.4.4"
 
   security_advisory = [
-    {cve="CVE-2025-30095", title="Private key reuse in Dropbear SSH server", description="A Dropbear private key was included in the image at build time and not regenerated, making console server SSH connections vulnerable to MitM attacks..", status="fixed"},
-    {cve="CVE-2023-32728", title="Code injection in zabbix_agent2 smartctl plugin", description="Certain configurations of Zabbix agent were vulnerable to remote code execution. This issue was previously fixed by a hotfix and is now included in the image.", status="Fixed"},
-    {cve="CVE-2024-3596", title="Blast-RADIUS", description="The Blast-RADIUS vulnerability is present in 1.4.2 and will be fixed in subsequent releases. Make sure your routers are not communicating with RADIUS servers over untrusted networks.", status="Present"}
   ]
 
-  notes = "Maintenance and security release"
+  notes = "Maintenance release"
 
 [release.equuleus]
   latest = "1.3.8"

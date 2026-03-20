@@ -49,6 +49,11 @@
 
   ## Releases
 
+  <h3 id="2026.03">VyOS Stream 2026.03</h3>
+
+  * Image [vyos-2026.03-generic-amd64.iso](https://community-downloads.vyos.dev/stream/2026.03/vyos-2026.03-generic-amd64.iso) ([sig](https://community-downloads.vyos.dev/stream/2026.03/vyos-2026.03-generic-amd64.iso.minisig))
+  * Source code tarball: [circinus-2026.03.tar.gz](https://community-downloads.vyos.dev/stream/2026.03/circinus-2026.03.tar.gz) ([sig](https://community-downloads.vyos.dev/stream/2026.03/circinus-2026.03.tar.gz.minisig))
+
   <h3 id="2026.02">VyOS Stream 2026.02</h3>
 
   * Image [vyos-2026.02-generic-amd64.iso](https://community-downloads.vyos.dev/stream/2026.02/vyos-2026.02-generic-amd64.iso) ([sig](https://community-downloads.vyos.dev/stream/2026.02/vyos-2026.02-generic-amd64.iso.minisig))

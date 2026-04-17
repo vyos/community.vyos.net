@@ -71,6 +71,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   action = "prepend_child"
   profile = "live"
 
+[widgets.insert-preconnect-hints]
+  widget = "insert_html"
+  html = """
+<link rel="preconnect" href="https://metrics.vyos.io" crossorigin />
+<link rel="preconnect" href="https://consent.cookiebot.com" crossorigin />
+"""
+  selector = "head"
+  action = "append_child"
+  profile = "live"
+
 # Inserts a scary warning banner in preview versions
 [widgets.insert-staging-warning]
   widget = "include"

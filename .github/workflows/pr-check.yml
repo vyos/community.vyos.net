@@ -21,7 +21,7 @@ jobs:
         run: |
           wget -q https://github.com/PataphysicalSociety/soupault/releases/download/4.10.0/soupault-4.10.0-linux-x86_64.tar.gz
           tar xf soupault-4.10.0-linux-x86_64.tar.gz
-          sudo mv soupault-4.10.0-linux-x86_64/soupault /usr/local/bin/
+          sudo mv soupault-4.10.0-linux-x86_64/soupault /usr/bin/
 
       - name: Build (staging profile)
         run: SOUPAULT_OPTS="--profile staging" make all

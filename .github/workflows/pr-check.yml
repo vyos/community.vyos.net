@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install cmark
-        run: sudo apt-get install -y cmark
+        run: sudo apt-get update && sudo apt-get install -y cmark
 
       - name: Install Dart Sass
         run: npm install -g sass@1.32.8

@@ -16,7 +16,7 @@ applications:
         build:
           commands:
             - source .venv/bin/activate
-            - '[ "$AWS_BRANCH" = "production" ] && export SOUPAULT_OPTS="--profile live" || export SOUPAULT_OPTS="--profile staging"'
+            - 'if [ "$AWS_BRANCH" = "production" ]; then export SOUPAULT_OPTS="--profile live"; else export SOUPAULT_OPTS="--profile staging"; fi'
             - make all
       artifacts:
         baseDirectory: /build

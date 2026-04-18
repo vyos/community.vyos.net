@@ -51,23 +51,50 @@
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5Q572R5');</script>
+'https://metrics.vyos.io/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T5VQHRT');</script>
 <!-- End Google Tag Manager -->
 """
   selector = "head"
   action = "prepend_child"
+  profile = "live"
 
 [widgets.insert-google-tag-manager-body]
   widget = "insert_html"
   selector = "body"
   html = """
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q572R5"
+<noscript><iframe src="https://metrics.vyos.io/ns.html?id=GTM-T5VQHRT"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   """
   action = "prepend_child"
+  profile = "live"
+
+[widgets.insert-preconnect-hints]
+  widget = "insert_html"
+  html = """
+<link rel="preconnect" href="https://metrics.vyos.io" crossorigin />
+<link rel="preconnect" href="https://consent.cookiebot.com" crossorigin />
+"""
+  selector = "head"
+  action = "prepend_child"
+  after = "insert-google-tag-manager-head"
+  profile = "live"
+
+# The Cookiebot CookieDeclaration script is injected only on live builds so
+# staging visitors who hit /legal/cookies-policy/ don't leak their IP to
+# consent.cookiebot.com. The markdown source contains a placeholder div
+# (#cookie-declaration-placeholder) that this widget replaces in place.
+[widgets.insert-cookiebot-declaration]
+  widget = "insert_html"
+  page = "legal/cookies-policy.md"
+  html = """
+<script id="CookieDeclaration" src="https://consent.cookiebot.com/932cb8b9-5141-4dc9-9018-21fc31a0586f/cd.js" type="text/javascript" async></script>
+"""
+  selector = "#cookie-declaration-placeholder"
+  action = "replace_element"
+  profile = "live"
 
 # Inserts a scary warning banner in preview versions
 [widgets.insert-staging-warning]

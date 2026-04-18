@@ -42,12 +42,18 @@
   selector = "main"
   action = "insert_before"
 
-# Cookiebot consent banner — loaded before GTM so consent state is set
-# before any tracking tags fire.
+# Cookiebot consent banner — must be synchronous (no `async`) so the browser
+# blocks on it before parsing GTM's inline bootstrap script. With `async`,
+# the GTM snippet would execute before Cookiebot sets consent state.
+#
+# `after = "insert-google-tag-manager-head"` controls soupault execution order,
+# not DOM order: GTM widget runs first (prepends GTM to <head>), then this
+# widget runs and prepends Cookiebot — so Cookiebot ends up before GTM in the
+# final HTML.
 [widgets.insert-cookiebot-loader]
   widget = "insert_html"
   html = """
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="932cb8b9-5141-4dc9-9018-21fc31a0586f" data-blockingmode="auto" type="text/javascript" async></script>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="932cb8b9-5141-4dc9-9018-21fc31a0586f" data-blockingmode="auto" type="text/javascript"></script>
 """
   selector = "head"
   action = "prepend_child"

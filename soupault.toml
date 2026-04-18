@@ -90,7 +90,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   widget = "insert_html"
   page = "legal/cookies-policy.md"
   html = """
-<script id="CookieDeclaration" src="https://consent.cookiebot.com/<CBID>/cd.js" type="text/javascript" async></script>
+<script id="CookieDeclaration" src="https://consent.cookiebot.com/932cb8b9-5141-4dc9-9018-21fc31a0586f/cd.js" type="text/javascript" async></script>
 """
   selector = "#cookie-declaration-placeholder"
   action = "replace_element"

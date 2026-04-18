@@ -4,7 +4,4 @@ This page lists the cookies set by vyos.net. Cookie data is maintained automatic
 
 For the VyOS privacy policy covering all VyOS properties, see [vyos.io/legal/privacy-policy](https://vyos.io/legal/privacy-policy).
 
-<script id="CookieDeclaration"
-        src="https://consent.cookiebot.com/<CBID>/cd.js"
-        type="text/javascript"
-        async></script>
+<div id="cookie-declaration-placeholder"></div>

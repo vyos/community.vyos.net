@@ -6,4 +6,10 @@
 
   notes = "Maintenance release"
 
+[release.circinus]
+  latest = "1.5.0"
 
+  security_advisory = [
+  ]
+
+  notes = "GA release"

@@ -42,7 +42,17 @@
   selector = "main"
   action = "insert_before"
 
-# Inserts the banner in main page only
+# Cookiebot consent banner — loaded before GTM so consent state is set
+# before any tracking tags fire.
+[widgets.insert-cookiebot-loader]
+  widget = "insert_html"
+  html = """
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="932cb8b9-5141-4dc9-9018-21fc31a0586f" data-blockingmode="auto" type="text/javascript" async></script>
+"""
+  selector = "head"
+  action = "prepend_child"
+  after = "insert-google-tag-manager-head"
+  profile = "live"
 
 [widgets.insert-google-tag-manager-head]
   widget = "insert_html"

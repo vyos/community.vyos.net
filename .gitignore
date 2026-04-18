@@ -1,3 +1,4 @@
 build/*
 index.json
 .soupault-cache/
+.worktrees/

@@ -1,0 +1,7 @@
+# Mergify configuration — manual commands only, no automated rules.
+# Available commands (post in a PR comment):
+#   @Mergifyio merge        — merge the PR
+#   @Mergifyio rebase       — rebase the branch on the base branch
+#   @Mergifyio update       — update the branch (merge base into it)
+#   @Mergifyio backport <branch> — backport to another branch
+pull_request_rules: []

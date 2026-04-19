@@ -30,3 +30,19 @@ def find_pages(site_dir):
             if fname.endswith((".md", ".html")):
                 pages.append(os.path.join(dirpath, fname))
     return pages
+
+
+def derive_url(filepath, site_dir):
+    """Derive canonical URL from a source file path relative to site_dir."""
+    rel = os.path.relpath(filepath, site_dir)
+    parts = rel.replace(os.sep, "/").split("/")
+    stem = os.path.splitext(parts[-1])[0]
+    if stem == "index":
+        path_parts = parts[:-1]
+    else:
+        path_parts = parts[:-1] + [stem]
+    if not path_parts:
+        url_path = "/"
+    else:
+        url_path = "/" + "/".join(path_parts) + "/"
+    return BASE_URL + url_path

@@ -22,3 +22,8 @@ def sitemap_module():
 @pytest.fixture(scope="session")
 def find_pages(sitemap_module):
     return sitemap_module.find_pages
+
+
+@pytest.fixture(scope="session")
+def derive_url(sitemap_module):
+    return sitemap_module.derive_url

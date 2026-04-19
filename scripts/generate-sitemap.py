@@ -106,6 +106,7 @@ def generate_sitemap(site_dir, build_dir, today=None):
     pretty = dom.toprettyxml(indent="  ", encoding="UTF-8")
 
     out_path = os.path.join(build_dir, "sitemap.xml")
+    os.makedirs(build_dir, exist_ok=True)
     with open(out_path, "wb") as f:
         f.write(pretty)
     print(f"Wrote {out_path}")

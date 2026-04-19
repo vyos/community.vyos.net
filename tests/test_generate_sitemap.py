@@ -1,5 +1,8 @@
 import os
+import xml.etree.ElementTree as ET
 import pytest
+
+NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 
 def make_site(tmp_path, files):
@@ -109,3 +112,178 @@ def test_get_heuristics_depth3_uses_depth2_default(get_heuristics):
     changefreq, priority = get_heuristics("/a/b/c/")
     assert changefreq == "monthly"
     assert priority == "0.5"
+
+
+def make_full_site(tmp_path):
+    """Create a site/ tree matching the current vyos.net structure."""
+    files = [
+        "index.html",
+        "about/index.md",
+        "about/upstream-projects.md",
+        "contribute/index.md",
+        "get/index.md",
+        "get/contributor-subscriptions.md",
+        "get/nightly-builds.md",
+        "get/stream.md",
+        "status.md",
+        "legal/cookies-policy.md",
+        "img/logo.svg",
+        "js/app.js",
+    ]
+    return make_site(tmp_path / "site", files)
+
+
+def test_generate_sitemap_produces_xml(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    out = build / "sitemap.xml"
+    assert out.exists()
+
+
+def test_generate_sitemap_well_formed(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    ET.parse(str(build / "sitemap.xml"))  # raises if not well-formed
+
+
+def test_generate_sitemap_namespace(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    tree = ET.parse(str(build / "sitemap.xml"))
+    root = tree.getroot()
+    assert root.tag == f"{{{NS}}}urlset"
+
+
+def test_generate_sitemap_url_count(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    tree = ET.parse(str(build / "sitemap.xml"))
+    root = tree.getroot()
+    urls = root.findall(f"{{{NS}}}url")
+    assert len(urls) == 10
+
+
+def test_generate_sitemap_all_fields_present(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    tree = ET.parse(str(build / "sitemap.xml"))
+    root = tree.getroot()
+    for url_el in root.findall(f"{{{NS}}}url"):
+        assert url_el.find(f"{{{NS}}}loc") is not None
+        assert url_el.find(f"{{{NS}}}lastmod") is not None
+        assert url_el.find(f"{{{NS}}}changefreq") is not None
+        assert url_el.find(f"{{{NS}}}priority") is not None
+
+
+def test_generate_sitemap_lastmod_is_today(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    tree = ET.parse(str(build / "sitemap.xml"))
+    root = tree.getroot()
+    for url_el in root.findall(f"{{{NS}}}url"):
+        assert url_el.find(f"{{{NS}}}lastmod").text == "2026-04-19"
+
+
+def test_generate_sitemap_urls_sorted(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    tree = ET.parse(str(build / "sitemap.xml"))
+    root = tree.getroot()
+    locs = [el.find(f"{{{NS}}}loc").text for el in root.findall(f"{{{NS}}}url")]
+    assert locs == sorted(locs)
+
+
+def test_generate_sitemap_no_duplicate_locs(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    tree = ET.parse(str(build / "sitemap.xml"))
+    root = tree.getroot()
+    locs = [el.find(f"{{{NS}}}loc").text for el in root.findall(f"{{{NS}}}url")]
+    assert len(locs) == len(set(locs))
+
+
+def test_generate_sitemap_root_heuristics(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    tree = ET.parse(str(build / "sitemap.xml"))
+    root = tree.getroot()
+    root_url = next(
+        el for el in root.findall(f"{{{NS}}}url")
+        if el.find(f"{{{NS}}}loc").text == "https://vyos.net/"
+    )
+    assert root_url.find(f"{{{NS}}}priority").text == "1.0"
+    assert root_url.find(f"{{{NS}}}changefreq").text == "daily"
+
+
+def test_generate_sitemap_get_override(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    tree = ET.parse(str(build / "sitemap.xml"))
+    root = tree.getroot()
+    get_url = next(
+        el for el in root.findall(f"{{{NS}}}url")
+        if el.find(f"{{{NS}}}loc").text == "https://vyos.net/get/"
+    )
+    assert get_url.find(f"{{{NS}}}changefreq").text == "daily"
+
+
+def test_generate_sitemap_nightly_builds_override(tmp_path, generate_sitemap):
+    site = make_full_site(tmp_path)
+    build = tmp_path / "build"
+    build.mkdir()
+    generate_sitemap(str(site), str(build), today="2026-04-19")
+    tree = ET.parse(str(build / "sitemap.xml"))
+    root = tree.getroot()
+    nb_url = next(
+        el for el in root.findall(f"{{{NS}}}url")
+        if el.find(f"{{{NS}}}loc").text == "https://vyos.net/get/nightly-builds/"
+    )
+    assert nb_url.find(f"{{{NS}}}changefreq").text == "daily"
+
+
+def test_generate_sitemap_error_on_missing_site(tmp_path, generate_sitemap):
+    build = tmp_path / "build"
+    build.mkdir()
+    with pytest.raises(SystemExit) as exc:
+        generate_sitemap(str(tmp_path / "nonexistent"), str(build), today="2026-04-19")
+    assert exc.value.code == 1
+
+
+def test_generate_sitemap_error_on_zero_pages(tmp_path, generate_sitemap):
+    site = tmp_path / "site"
+    site.mkdir()
+    build = tmp_path / "build"
+    build.mkdir()
+    with pytest.raises(SystemExit) as exc:
+        generate_sitemap(str(site), str(build), today="2026-04-19")
+    assert exc.value.code == 1
+
+
+def test_generate_sitemap_error_on_duplicate_urls(tmp_path, generate_sitemap):
+    # foo.md and foo.html at the same path both derive to /foo/
+    site = make_site(tmp_path / "site", ["foo.md", "foo.html"])
+    build = tmp_path / "build"
+    build.mkdir()
+    with pytest.raises(SystemExit) as exc:
+        generate_sitemap(str(site), str(build), today="2026-04-19")
+    assert exc.value.code == 1

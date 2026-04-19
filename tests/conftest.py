@@ -32,3 +32,8 @@ def derive_url(sitemap_module):
 @pytest.fixture(scope="session")
 def get_heuristics(sitemap_module):
     return sitemap_module.get_heuristics
+
+
+@pytest.fixture(scope="session")
+def generate_sitemap(sitemap_module):
+    return sitemap_module.generate_sitemap

@@ -57,3 +57,67 @@ def get_heuristics(url_path):
     idx = min(depth, 2)
     d = DEPTH_DEFAULTS[idx]
     return d["changefreq"], d["priority"]
+
+
+def generate_sitemap(site_dir, build_dir, today=None):
+    """Discover pages in site_dir and write build_dir/sitemap.xml."""
+    if today is None:
+        today = datetime.date.today().isoformat()
+
+    if not os.path.isdir(site_dir):
+        print(f"Error: site directory not found: {site_dir}", file=sys.stderr)
+        sys.exit(1)
+
+    pages = find_pages(site_dir)
+    if not pages:
+        print("Error: no routable pages discovered in site/", file=sys.stderr)
+        sys.exit(1)
+
+    # Derive URLs, detect duplicates
+    url_to_source = {}
+    for page in pages:
+        url = derive_url(page, site_dir)
+        if url in url_to_source:
+            print(
+                f"Error: duplicate URL {url} from:\n"
+                f"  {url_to_source[url]}\n"
+                f"  {page}",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+        url_to_source[url] = page
+
+    # Build XML tree
+    urlset = ET.Element("urlset")
+    urlset.set("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9")
+
+    for url in sorted(url_to_source):
+        url_path = url[len(BASE_URL):]
+        changefreq, priority = get_heuristics(url_path)
+        url_el = ET.SubElement(urlset, "url")
+        ET.SubElement(url_el, "loc").text = url
+        ET.SubElement(url_el, "lastmod").text = today
+        ET.SubElement(url_el, "changefreq").text = changefreq
+        ET.SubElement(url_el, "priority").text = priority
+
+    # Pretty-print via minidom
+    raw = ET.tostring(urlset, encoding="unicode")
+    dom = minidom.parseString(raw)
+    pretty = dom.toprettyxml(indent="  ", encoding="UTF-8")
+
+    out_path = os.path.join(build_dir, "sitemap.xml")
+    with open(out_path, "wb") as f:
+        f.write(pretty)
+    print(f"Wrote {out_path}")
+
+
+def main():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.dirname(script_dir)
+    site_dir = os.path.join(repo_root, "site")
+    build_dir = os.path.join(repo_root, "build")
+    generate_sitemap(site_dir, build_dir)
+
+
+if __name__ == "__main__":
+    main()

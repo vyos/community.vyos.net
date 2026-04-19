@@ -46,3 +46,14 @@ def derive_url(filepath, site_dir):
     else:
         url_path = "/" + "/".join(path_parts) + "/"
     return BASE_URL + url_path
+
+
+def get_heuristics(url_path):
+    """Return (changefreq, priority) tuple for a URL path string."""
+    if url_path in OVERRIDES:
+        o = OVERRIDES[url_path]
+        return o["changefreq"], o["priority"]
+    depth = len([s for s in url_path.split("/") if s])
+    idx = min(depth, 2)
+    d = DEPTH_DEFAULTS[idx]
+    return d["changefreq"], d["priority"]

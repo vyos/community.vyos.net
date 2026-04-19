@@ -18,6 +18,7 @@ applications:
             - source .venv/bin/activate
             - 'if [ "$AWS_BRANCH" = "production" ]; then export SOUPAULT_OPTS="--profile live"; else export SOUPAULT_OPTS="--profile staging"; fi'
             - make all
+            - 'if [ "$AWS_BRANCH" = "production" ]; then python3 scripts/generate-sitemap.py; fi'
       artifacts:
         baseDirectory: /build
         files:

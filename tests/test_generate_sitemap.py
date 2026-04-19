@@ -73,3 +73,39 @@ def test_derive_url_nested_md(tmp_path, derive_url):
     site = str(tmp_path)
     filepath = os.path.join(site, "legal", "cookies-policy.md")
     assert derive_url(filepath, site) == "https://vyos.net/legal/cookies-policy/"
+
+
+def test_get_heuristics_root(get_heuristics):
+    changefreq, priority = get_heuristics("/")
+    assert changefreq == "daily"
+    assert priority == "1.0"
+
+
+def test_get_heuristics_depth1(get_heuristics):
+    changefreq, priority = get_heuristics("/about/")
+    assert changefreq == "weekly"
+    assert priority == "0.8"
+
+
+def test_get_heuristics_depth2_default(get_heuristics):
+    changefreq, priority = get_heuristics("/legal/cookies-policy/")
+    assert changefreq == "monthly"
+    assert priority == "0.5"
+
+
+def test_get_heuristics_get_override(get_heuristics):
+    changefreq, priority = get_heuristics("/get/")
+    assert changefreq == "daily"
+    assert priority == "0.8"
+
+
+def test_get_heuristics_nightly_builds_override(get_heuristics):
+    changefreq, priority = get_heuristics("/get/nightly-builds/")
+    assert changefreq == "daily"
+    assert priority == "0.5"
+
+
+def test_get_heuristics_depth3_uses_depth2_default(get_heuristics):
+    changefreq, priority = get_heuristics("/a/b/c/")
+    assert changefreq == "monthly"
+    assert priority == "0.5"

@@ -1,12 +1,24 @@
 import importlib.util
 import os
-import sys
+import pytest
 
-def load_generate_sitemap():
+
+def _load_generate_sitemap():
     script_path = os.path.join(
         os.path.dirname(__file__), "..", "scripts", "generate-sitemap.py"
     )
     spec = importlib.util.spec_from_file_location("generate_sitemap", script_path)
     mod = importlib.util.module_from_spec(spec)
+    # Load the module from its file path (required because filename contains a hyphen)
     spec.loader.exec_module(mod)
     return mod
+
+
+@pytest.fixture(scope="session")
+def sitemap_module():
+    return _load_generate_sitemap()
+
+
+@pytest.fixture(scope="session")
+def find_pages(sitemap_module):
+    return sitemap_module.find_pages

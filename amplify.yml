@@ -5,14 +5,13 @@ applications:
         preBuild:
           commands:
             - 'if [ "$AWS_BRANCH" = "production" ]; then export GH_ACCESS_TOKEN="$(aws ssm get-parameter --name /amplify/shared/d224keb5xu0spt/GH_ACCESS_TOKEN --query Parameter.Value --output text --with-decryption)"; else unset GH_ACCESS_TOKEN; fi'
-            - sudo yum install -y https://dl.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/c/cmark-0.29.0-4.el9.x86_64.rpm
             - npm install -g sass@1.32.8
             - python3 -m venv .venv
             - source .venv/bin/activate
             - pip install pygithub jinja2
-            - wget https://github.com/PataphysicalSociety/soupault/releases/download/4.10.0/soupault-4.10.0-linux-x86_64.tar.gz
-            - tar xvf soupault-4.10.0-linux-x86_64.tar.gz
-            - sudo mv -v ./soupault-4.10.0-linux-x86_64/soupault /usr/bin/
+            - wget https://github.com/PataphysicalSociety/soupault/releases/download/5.3.0/soupault-5.3.0-linux-x86_64.tar.gz
+            - tar xvf soupault-5.3.0-linux-x86_64.tar.gz
+            - sudo mv -v ./soupault-5.3.0-linux-x86_64/soupault /usr/bin/
         build:
           commands:
             - source .venv/bin/activate

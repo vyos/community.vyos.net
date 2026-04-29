@@ -12,7 +12,7 @@ VyOS community website (community.vyos.net). A static site built by the [soupaul
 - Soupault plugins under `plugins/` (Lua).
 - AWS Amplify deploy spec: `amplify.yml`.
 - `release-status.toml` for the per-train release banner data.
-- `mergify.yml` present (single-rule conflicts label).
+- `.mergify.yml` present (commands-only; no automated rules).
 
 ## Build / test / run
 
@@ -45,7 +45,7 @@ Static site, independent of the VyOS image build. Sibling corporate web properti
 
 - Commit / PR title format: `component: T12345: description` (Phorge task ID mandatory). Enforced by `vyos/.github` reusable workflows where consumed.
 - **Branch model differs:** `main` is the staging branch (auto-deployed to staging.vyos.net); `production` is the production branch.
-- `mergify.yml` adds a `conflicts` label to conflicting PRs (byte-identical to other VyOS repos with this file).
+- `.mergify.yml` provides Mergify commands (`merge`, `rebase`, `update`, `backport`) but has no automated PR rules.
 
 ## Mirror relationship
 

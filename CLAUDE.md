@@ -56,7 +56,3 @@ Mirror twin: `VyOS-Networks/community.vyos.net`. Canonical side is **here** (`vy
 - This repo's branch model is `main` (staging) → `production` (live), **not** the `current`/`sagitta`/`circinus` train naming used by VyOS image repos.
 - soupault is the build dependency, not Hugo or Jekyll. Install from soupault.app.
 - License: see `LICENSE` (none committed; treat as VyOS-default).
-
----
-
-This file is mirrored on Confluence: [`vyos/community.vyos.net`](https://internal.confluence.vyos.com/wiki/spaces/VYOS/pages/818413601). The Confluence page also carries the per-repo audit data (settings, workflows, secret counts, hygiene) that complements this CLAUDE.md. Edit either side; resync via the documentation pipeline.

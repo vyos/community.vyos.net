@@ -34,7 +34,7 @@ make all
 - `plugins/` — soupault Lua plugins.
 - `scripts/` — helper scripts.
 - `soupault.toml` — site config; markdown extensions, strict mode, etc.
-- `amplify.yml` — Amplify build pipeline (likely calls `make all`).
+- `amplify.yml` — Amplify build pipeline (calls `make all`; installs soupault 5.3.0, sass 1.32.8, and Python packages pygithub/jinja2 in preBuild).
 - `release-status.toml` — release-train metadata feed for the site.
 
 ## Cross-repo context

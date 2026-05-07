@@ -47,10 +47,6 @@ Static site, independent of the VyOS image build. Sibling corporate web properti
 - **Branch model differs:** `main` is the staging branch (auto-deployed to staging.vyos.net); `production` is the production branch.
 - `.mergify.yml` provides Mergify commands (`merge`, `rebase`, `update`, `backport`) but has no automated PR rules.
 
-## Mirror relationship
-
-Mirror twin: `VyOS-Networks/community.vyos.net`. Canonical side is **here** (`vyos/community.vyos.net`).
-
 ## Notes for future contributors
 
 - This repo's branch model is `main` (staging) → `production` (live), **not** the `current`/`sagitta`/`circinus` train naming used by VyOS image repos.

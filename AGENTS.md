@@ -2,7 +2,7 @@
 
 ## Project purpose
 
-VyOS community website (community.vyos.net). A static site built by the [soupault](https://soupault.app) static-site generator from HTML pages plus SASS-built CSS. Deployed via AWS Amplify (`amplify.yml` present).
+VyOS community website (community.vyos.net). A static site built by the [soupault](https://soupault.net) static-site generator from HTML pages plus SASS-built CSS. Deployed via AWS Amplify (`amplify.yml` present).
 
 ## Tech stack
 

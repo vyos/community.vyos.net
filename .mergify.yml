@@ -1,7 +1,12 @@
-# Mergify configuration — manual commands only, no automated rules.
+extends: mergify
+merge_protections_settings:
+  reporting_method: check-runs
+# Local divergence: manual commands only, no automated rules.
 # Available commands (post in a PR comment):
 #   @Mergifyio merge        — merge the PR
 #   @Mergifyio rebase       — rebase the branch on the base branch
 #   @Mergifyio update       — update the branch (merge base into it)
 #   @Mergifyio backport <branch> — backport to another branch
+# Empty pull_request_rules overrides nothing; central rules from `extends: mergify`
+# (commands_restrictions + Label conflicting pull requests + invalid-title) still apply.
 pull_request_rules: []

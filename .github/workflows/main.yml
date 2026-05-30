@@ -7,7 +7,7 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - development
       - production
       - amplify
   schedule:

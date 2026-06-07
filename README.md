@@ -1,4 +1,4 @@
-[![vyos.net build](https://github.com/vyos/community.vyos.net/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/vyos/community.vyos.net/actions/workflows/main.yml)
+[![vyos.net build](https://github.com/vyos/community.vyos.net/actions/workflows/main.yml/badge.svg?branch=production)](https://github.com/vyos/community.vyos.net/actions/workflows/main.yml)
 
 # community.vyos.net
 
@@ -65,3 +65,4 @@ You can force soupault to run them by building with `soupault --profile live`. Y
 S3 bucket that mimics our own setup and access credentials for it in your environment.
 All in all you probably don't want to touch them since they are really specific to our own setup.
 This section is here mostly for completeness.
+

@@ -22,6 +22,7 @@
       <div class='image-signatures'>
 
   VyOS rolling release builds are automatically produced from the `current` branch at least once a day.
+
   They include all the latest code from maintainers and community contributors.
 
   Rolling release builds are not hand-tested before upload.

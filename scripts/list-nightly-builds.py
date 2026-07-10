@@ -24,8 +24,8 @@ def list_images(repo):
     # so we don't need to sort them
     releases = repo.get_releases()
     for r in releases:
-        iso = r.assets[0]
-        sig = r.assets[1]
+        iso = r.assets[1]
+        sig = r.assets[2]
 
         # Nightly build releases have two assets:
         # an ISO and a Minisign signature file

@@ -24,16 +24,25 @@ def list_images(repo):
     # so we don't need to sort them
     releases = repo.get_releases()
     for r in releases:
-        iso = r.assets[1]
-        sig = r.assets[2]
+        # Match assets by filename instead of by position: each release has
+        # exactly one ISO plus its Minisign signature (<iso-name>.minisig),
+        # alongside other assets (checksums, source archives, etc.) whose
+        # count varies over time. Index-based access breaks whenever that
+        # count changes, so look the pair up by name.
+        assets = {a.name: a for a in r.assets}
 
-        # Nightly build releases have two assets:
-        # an ISO and a Minisign signature file
-        # The signature is always the second asset in the list
+        iso = next((a for name, a in assets.items() if name.endswith(".iso")), None)
+        if iso is None:
+            continue  # no ISO in this release, skip
+
+        sig = assets.get(iso.name + ".minisig")
+        if sig is None:
+            continue  # ISO without a signature, skip
+
         image = {}
         image["iso_url"] = iso.browser_download_url
         image["sig_url"] = sig.browser_download_url
-        image["title"] = r.title
+        image["title"] = r.name  # r.title is deprecated in PyGithub
 
         images.append(image)
 
